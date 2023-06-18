@@ -1,0 +1,40 @@
+{
+  "title": "Phoenix",
+  "description": "The unofficial phoenix system for FoundryVTT.",
+  "version": "0.2.7",
+  "esmodules": [
+    "module/phoenix.js"
+  ],
+  "styles": [
+    "css/phoenix.css"
+  ],
+  "packs": [
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    }
+  ],
+  "gridDistance": 1,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "health",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "",
+  "id": "phoenix",
+  "authors": [
+    {
+      "name": "Yarmoon",
+      "flags": {}
+    }
+  ],
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11",
+    "maximum": "11"
+  }
+}
