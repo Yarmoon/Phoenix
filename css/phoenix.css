@@ -485,14 +485,19 @@
     font-size: 1.1rem;
 }
 
-.phoenix .statblock{
-    margin: auto;
-
+.phoenix .horizontalFlex {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+}
+
+.phoenix .statblock{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    height: 40px;
-    width: 100%
+    height: 100%;
+    width: 33%; /* You can adjust this value according to your needs */
 }
 
 .phoenix .current-max-label{
@@ -515,7 +520,7 @@
 .phoenix .blockborder{
     border: 2px solid #111;
     border-radius: 0.7em;
-    background: linear-gradient(90deg, rgba(221,221,221,1) 0%, rgba(221,221,221,1) 50%,rgba(255,255,255,1) 34%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(180deg, rgba(221,221,221,1) 0%, rgba(221,221,221,1) 50%,rgba(255,255,255,1) 34%, rgba(255,255,255,1) 100%);
 }
 
 .phoenix .blockborder-mini{
@@ -530,7 +535,8 @@
 }
 
 .phoenix .abilities{
-    width: 8em;
+    width: 75%;
+    margin: 5px;
 }
 
 .phoenix .minmaxtopstat{

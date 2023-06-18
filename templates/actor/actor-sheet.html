@@ -4,7 +4,8 @@
   <header class="char-header header-grid">
       <div class="header-fields header-grid">
           <div class="header">
-              <div class="header-border" style="width: 75%;">
+              <div class="maininfo">
+                <div class="header-border" style="width: 75%;">
                   <!-- <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150"/> -->
 
                   <!-- PLAYER NAME -->
@@ -15,74 +16,69 @@
                   </div>
               </div>
 
+                <div class="abilities">
+                  <div class="horizontalFlex blockborder">
+                      <!-- Strength -->
+                      <div class="statblock">
+                          <label for="system.stat.strength.value" class="statName minmaxtext rollable stat-roll" data-key="strength"
+                                 data-roll="1d20" data-label="Strength">{{localize "Phoenix.ActorStr"}}</label>
+
+                          <input class="minmax-input darkGreyText" type="text" name="system.stats.strength.value"
+                                 value="{{system.stats.strength.value}}" data-dtype="Number" />
+                      </div>
+
+                      <!-- Dexterity -->
+                      <div class="statblock">
+                          <label for="system.stat.dexterity.value" class="statName minmaxtext rollable stat-roll" data-key="dexterity"
+                                 data-roll="1d20" data-label="Dexterity">{{localize "Phoenix.ActorDex"}}</label>
+
+                          <input class="minmax-input darkGreyText" type="text" name="system.stats.dexterity.value"
+                                 value="{{system.stats.dexterity.value}}" data-dtype="Number" />
+                      </div>
+
+                      <!-- Constitution -->
+                      <div class="statblock">
+                          <label for="system.stat.constitution.value" class="statName minmaxtext rollable stat-roll" data-key="constitution"
+                                 data-roll="1d20" data-label="Constitution">{{localize "Phoenix.ActorCon"}}</label>
+
+                          <input class="minmax-input darkGreyText" type="text" name="system.stats.constitution.value"
+                                 value="{{system.stats.constitution.value}}" data-dtype="Number" />
+                      </div>
+
+                      <!-- Intelligence -->
+                      <div class="statblock">
+                          <label for="system.stat.intelligence.value" class="statName minmaxtext rollable stat-roll" data-key="intelligence"
+                                 data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorInt"}}</label>
+
+                          <input class="minmax-input darkGreyText" type="text" name="system.stats.intelligence.value"
+                                 value="{{system.stats.intelligence.value}}" data-dtype="Number" />
+                      </div>
+
+                      <!-- Wisdom -->
+                      <div class="statblock">
+                          <label for="system.stat.wisdom.value" class="statName minmaxtext rollable stat-roll" data-key="wisdom"
+                                 data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorWis"}}</label>
+
+                          <input class="minmax-input darkGreyText" type="text" name="system.stats.wisdom.value"
+                                 value="{{system.stats.wisdom.value}}" data-dtype="Number" />
+                      </div>
+
+                      <!-- Charisma -->
+                      <div class="statblock">
+                          <label for="system.stat.charisma.value" class="statName minmaxtext rollable stat-roll" data-key="charisma"
+                                 data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorCha"}}</label>
+
+                          <input class="minmax-input darkGreyText" type="text" name="system.stats.charisma.value"
+                                 value="{{system.stats.charisma.value}}" data-dtype="Number" />
+                      </div>
+                  </div>
+              </div>
+              </div>
 
               <div style="grid-area: portrait" ;>
 
                   <img class="portrait" src="{{img}}" data-edit="img" title="{{name}}" height="250" width="250" />
 
-              </div>
-          </div>
-
-          <div class="abilities">
-              <div class="verticalFlex blockborder">
-                  <!-- Strength -->
-                  <div class="statblock">
-                      <label for="system.stat.strength.value" class="statName minmaxtext rollable stat-roll" data-key="strength"
-                             data-roll="1d20" data-label="Strength">{{localize "Phoenix.ActorStr"}}</label>
-
-                      <input class="minmax-input darkGreyText" type="text" name="system.stats.strength.value"
-                             value="{{system.stats.strength.value}}" data-dtype="Number" />
-                  </div>
-                  <div class="seperatorLine"></div>
-
-                  <!-- Dexterity -->
-                  <div class="statblock">
-                      <label for="system.stat.dexterity.value" class="statName minmaxtext rollable stat-roll" data-key="dexterity"
-                             data-roll="1d20" data-label="Dexterity">{{localize "Phoenix.ActorDex"}}</label>
-
-                      <input class="minmax-input darkGreyText" type="text" name="system.stats.dexterity.value"
-                             value="{{system.stats.dexterity.value}}" data-dtype="Number" />
-                  </div>
-                  <div class="seperatorLine"></div>
-
-                  <!-- Constitution -->
-                  <div class="statblock">
-                      <label for="system.stat.constitution.value" class="statName minmaxtext rollable stat-roll" data-key="constitution"
-                             data-roll="1d20" data-label="Constitution">{{localize "Phoenix.ActorCon"}}</label>
-
-                      <input class="minmax-input darkGreyText" type="text" name="system.stats.constitution.value"
-                             value="{{system.stats.constitution.value}}" data-dtype="Number" />
-                  </div>
-                  <div class="seperatorLine"></div>
-
-                  <!-- Intelligence -->
-                  <div class="statblock">
-                      <label for="system.stat.intelligence.value" class="statName minmaxtext rollable stat-roll" data-key="intelligence"
-                             data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorInt"}}</label>
-
-                      <input class="minmax-input darkGreyText" type="text" name="system.stats.intelligence.value"
-                             value="{{system.stats.intelligence.value}}" data-dtype="Number" />
-                  </div>
-                  <div class="seperatorLine"></div>
-
-                  <!-- Wisdom -->
-                  <div class="statblock">
-                      <label for="system.stat.wisdom.value" class="statName minmaxtext rollable stat-roll" data-key="wisdom"
-                             data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorWis"}}</label>
-
-                      <input class="minmax-input darkGreyText" type="text" name="system.stats.wisdom.value"
-                             value="{{system.stats.wisdom.value}}" data-dtype="Number" />
-                  </div>
-                  <div class="seperatorLine"></div>
-
-                  <!-- Charisma -->
-                  <div class="statblock">
-                      <label for="system.stat.charisma.value" class="statName minmaxtext rollable stat-roll" data-key="charisma"
-                             data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorCha"}}</label>
-
-                      <input class="minmax-input darkGreyText" type="text" name="system.stats.charisma.value"
-                             value="{{system.stats.charisma.value}}" data-dtype="Number" />
-                  </div>
               </div>
           </div>
       </div>
