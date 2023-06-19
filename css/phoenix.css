@@ -429,10 +429,11 @@
 .phoenix .tab-select {
     font-size: medium;
     font-weight: bold;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-size: 1.5em;
     color: #111;
     text-align: center;
+    font-kerning: auto;
 }
 
 .phoenix .stresstext {
@@ -520,9 +521,10 @@
     font-size: 0.9rem;
     font-weight: bold;
     text-align: center;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     background: transparent;
     flex: 1;
+    font-kerning: auto;
 }
 
 .phoenix .statName{
@@ -591,38 +593,42 @@
     font-size: 1.8rem;
     font-weight: bold;
     text-align: center;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     background: transparent;
     flex: 1;
+    font-kerning: auto;
 }
 
 
 .phoenix .minmaxtext{
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-size: 1.8rem;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
     margin: auto;
     flex: 1;
+    font-kerning: auto;
 }
 
 .phoenix .littleLabel{
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
     margin: auto;
     flex: 0.5;
+    font-kerning: auto;
 }
 
 .phoenix .bigLabel{
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-size: 1.8rem;
     font-weight: bold;
     text-align: center;
     margin: auto;
     flex: 0.5;
+    font-kerning: auto;
 }
 
 .phoenix .seperatorLine{
@@ -866,12 +872,13 @@
 
 .phoenix .headerinputtext {
     color: rgb(22, 22, 22);
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
     margin-top: 3px;
     flex: 1;
+    font-kerning: auto;
 }
 
 .phoenix .headerinputfield {
@@ -881,8 +888,9 @@
     padding: 2px;
     /* background-color: rgb(240,240,240); */
     font-size: 1rem;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     flex: 1.9;
+    font-kerning: auto;
 }
 
 .phoenix .header-border {
@@ -928,8 +936,9 @@
 
     border: 2px solid #111;
     border-radius: 0em 0em 0.25em 0.25em;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     position: relative;
+    font-kerning: auto;
 }
 
 .phoenix .rollh1 {
@@ -983,9 +992,10 @@
     width: 100%;
     padding: 0.5rem;
     color: black;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-size: 0.9rem;
     text-align: center;
+    font-kerning: auto;
 }
 
 .phoenix .roll-grid {
@@ -1017,8 +1027,9 @@
     border-radius: 1.5rem;
     color: #111;
 
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     text-align: right;
+    font-kerning: auto;
 }
 
 .phoenix .roll-targetbox {
@@ -1038,7 +1049,8 @@
     padding: 5px;
     color: rgb(117, 0, 0);
     font-weight: normal;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
+    font-kerning: auto;
 }
 
 .phoenix .roll-damagebox {
@@ -1088,10 +1100,11 @@
 .phoenix .item-bag-text {
     padding: 9px;
     height: 100%;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-size: 3.3em;
     color: grey;
     margin: 20%;
+    font-kerning: auto;
 }
 
 .phoenix .item-slot-dashed {
@@ -1110,11 +1123,12 @@
 .phoenix .item-slot-header {
     padding: 4px;
     height: 30px;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-size: 1.3em;
     color: grey;
     text-align: center;
     pointer-events: none;
+    font-kerning: auto;
 }
 
 .phoenix .item-slot-footer {
@@ -1162,11 +1176,12 @@
     z-index: 10;
     border-bottom: 1px solid rgb(22, 22, 22);
     border-radius: 0.1em 0.1em 0 0;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-size: 1.25em;
     color: black;
     pointer-events: none;
     white-space: nowrap;
+    font-kerning: auto;
 }
 
 .phoenix .item-card-header-noborder {
@@ -1174,10 +1189,11 @@
     padding: 4px;
     height: 30px;
     z-index: 10;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-size: 1.4em;
     color: black;
     pointer-events: none;
+    font-kerning: auto;
 }
 
 .phoenix .item-card-star {
@@ -1251,12 +1267,13 @@
     background: white;
     color: rgb(22, 22, 22);
     margin: 5px;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-size: 1.5em;
     right: 0;
     top: 28px;
     position: absolute;
     padding: 5px;
+    font-kerning: auto;
 }
 
 .phoenix .item-card-image {
@@ -1277,11 +1294,12 @@
     margin: auto;
     background-color: rgb(240,240,240);
     font-size: 1.5rem;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     border: 2px solid rgb(22, 22, 22);
     position: absolute;
     bottom: 5px;
     left: 9px;
+    font-kerning: auto;
 }
 
 .phoenix .item-card-max {
@@ -1333,8 +1351,9 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: normal;
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     border-bottom: 0;
+    font-kerning: auto;
 }
 
 .phoenix .sheet-header-maus .item-text{
@@ -1352,14 +1371,16 @@
 
 
 .phoenix .sheet-header-maus .resource-label{
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-weight: normal;
     font-size: larger;
+    font-kerning: auto;
 }
 
 .phoenix .tabs .item{
-    font-family: 'Kanyon';
+    font-family: 'Kanyon', sans-serif;
     font-weight: bold;
     font-size: 1.5em;
     line-height: 28px;
+    font-kerning: auto;
 }
