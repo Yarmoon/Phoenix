@@ -267,6 +267,9 @@
 
 .phoenix .maininfo{
     width: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .phoenix .abilities {grid-area: abilities;}
@@ -422,7 +425,7 @@
 .phoenix .items-list .item-controls {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 86px;
-    flex: 0 0 86px;
+    flex: 0 0 200px;
     text-align: right;
 }
 
@@ -505,6 +508,10 @@
     justify-content: space-between;
 }
 
+.phoenix .hpminmax{
+    width: 50px;
+}
+
 .phoenix .statblock{
     margin: auto;
     display: flex;
@@ -512,6 +519,14 @@
     justify-content: center;
     height: 100%;
     width: 33%; /* You can adjust this value according to your needs */
+}
+
+.phoenix .healthblock{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
 
 .phoenix .current-max-label{
@@ -550,6 +565,11 @@
 
 .phoenix .abilities{
     width: 75%;
+    margin: 5px;
+}
+
+.phoenix .base-resources{
+    width: 20%;
     margin: 5px;
 }
 

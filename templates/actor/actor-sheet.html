@@ -74,15 +74,19 @@
                   </div>
                 </div>
 
-                <div class="abilities">
+                <div class="base-resources">
                     <div class="horizontalFlex blockborder">
                         <!-- HP -->
-                        <div class="statblock">
-                            <label for="system.stat.strength.value" class="statName minmaxtext rollable stat-roll" data-key="strength"
-                                   data-roll="1d20" data-label="Strength">{{localize "Phoenix.ActorStr"}}</label>
-
-                            <input class="minmax-input darkGreyText" type="text" name="system.stats.strength.value"
-                                   value="{{system.stats.strength.value}}" data-dtype="Number" />
+                        <div class="healthblock">
+                            <label for="system.health.value" class="statName minmaxtext rollable stat-roll" data-key="health"
+                                   data-roll="1d10" data-label="Health">{{localize "Phoenix.ActorHP"}}</label>
+                            <div class="horizontalFlex">
+                                <input class="minmax-input darkGreyText" style="height: 100%" type="text" name="system.health.value"
+                                       value="{{system.health.value}}" data-dtype="Number" />
+                                <div class="darkGreyText" style="height: 100%; font-size: 24px" type="text">/</div>
+                                <input class="minmax-input darkGreyText" style="height: 100%" type="text" name="system.health.max"
+                                       value="{{system.health.max}}" data-dtype="Number" />
+                            </div>
                         </div>
                     </div>
                 </div>
