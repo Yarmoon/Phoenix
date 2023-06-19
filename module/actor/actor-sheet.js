@@ -551,7 +551,7 @@ export class PhoenixActorSheet extends ActorSheet {
 
       if (data.actorId && !(event.ctrlKey) && !data.fromToken && !this.actor.isToken) {
           let oldActor = game.actors.get(data.actorId);
-          oldActor.deleteEmbeddedDocuments("Item",[data.itemId]);
+          await oldActor.deleteEmbeddedDocuments("Item", [data.itemId]);
       }
 
       if (!data.offset) {
