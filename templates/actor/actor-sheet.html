@@ -72,7 +72,20 @@
                                  value="{{system.stats.charisma.value}}" data-dtype="Number" />
                       </div>
                   </div>
-              </div>
+                </div>
+
+                <div class="abilities">
+                    <div class="horizontalFlex blockborder">
+                        <!-- HP -->
+                        <div class="statblock">
+                            <label for="system.stat.strength.value" class="statName minmaxtext rollable stat-roll" data-key="strength"
+                                   data-roll="1d20" data-label="Strength">{{localize "Phoenix.ActorStr"}}</label>
+
+                            <input class="minmax-input darkGreyText" type="text" name="system.stats.strength.value"
+                                   value="{{system.stats.strength.value}}" data-dtype="Number" />
+                        </div>
+                    </div>
+                </div>
               </div>
           </div>
 
