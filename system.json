@@ -16,6 +16,10 @@
       "name": "English",
       "path": "lang/en.json",
       "flags": {}
+    },
+    {
+      "lang": "ru",
+      "name": "Русский"
     }
   ],
   "gridDistance": 1,

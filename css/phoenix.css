@@ -239,11 +239,12 @@
 .phoenix .char-header .header-grid {
     display: grid;
     grid-template-areas:
-  'header header header'
-  'portrait centercol abilities ';
+  'header header portrait'
+  'underheader centercol portrait';
     grid-gap: 10px;
     padding: 10px;
     grid-template-columns: 15em auto 14em;
+    align-items: start;
 }
 
 .phoenix .header-grid-creature {
@@ -254,6 +255,10 @@
     grid-gap: 10px;
     padding: 10px;
     grid-template-columns: 15em auto 14em;
+}
+
+.phoenix .maininfo{
+    width: 450px;
 }
 
 .phoenix .abilities {grid-area: abilities;}
@@ -749,41 +754,6 @@
     padding: 5px;
 }
 
-.phoenix .creature-header-grid {
-    display: grid;
-    grid-template-areas:
-  'name header header'
-  'line line line';
-    background: #111;
-
-}
-
-
-.phoenix .creature-header {
-    display: flex ;
-    flex-direction: row-reverse;
-    align-items: center;
-    color: white;
-    font-family: "Montserrat", "Arial Black", sans-serif;
-    font-weight: bold;
-    grid-area: header;
-    padding: 8px;
-}
-
-.phoenix .creature-description-grid{
-    display: grid;
-    grid-template-columns: 1fr 15em;
-}
-
-.phoenix .creature-abilities{
-    background: rgb(22, 22, 22);
-    margin: 12px;
-    border: 2px solid white;
-    outline: 5px solid rgb(22, 22, 22);
-    overflow: auto;
-    height: 375px;
-}
-
 .phoenix .overlay{
     position: fixed;
     width: 100%;
@@ -937,13 +907,6 @@
 
 .phoenix .portrait {
     width: 100%;
-    height: auto;
-    border: 2px solid black;
-    border-radius: 10px;
-}
-
-.phoenix .portrait-creature {
-    width: 102px;
     height: auto;
     border: 2px solid black;
     border-radius: 10px;
