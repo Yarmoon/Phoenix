@@ -171,14 +171,6 @@
                     {{item.system.desc}}
                   </div>
                   {{/if}}
-                  {{#if item.system.clear}}
-                  <div class="item-card-clear">
-                    {{localize "Phoenix.CardClear"}}:
-                  </div>
-                  <div class="item-card-clear-text">
-                    {{item.system.clear}}
-                  </div>
-                  {{/if}}
                   <img src="{{item.img}}" title="{{item.name}}" class="item-card-image" style="transform:rotate({{item.system.sheet.rotation}}deg) scale({{item.system.size.aspect}});"/>
                   <div class="item-controls item-card-chat">
                     <a class="item-control item-rotate" title="Rotate Item"><i class="fas fa-sync-alt"></i></a>

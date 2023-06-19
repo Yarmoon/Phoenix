@@ -33,12 +33,6 @@
   "Phoenix.InventoryGrit" : "Grit",
   "Phoenix.InventoryBank" : "Bank",
   "Phoenix.InventoryAddItem" : "Добавить предмет",
-  "Phoenix.InventoryMainPaw" : "Main Paw",
-  "Phoenix.InventoryOffPaw" : "Off Paw",
-  "Phoenix.InventoryBody" : "Body",
-  "Phoenix.InventoryAttack1" : "Attack 1",
-  "Phoenix.InventoryAttack2" : "Attack 2",
-  "Phoenix.CardClear" : "Clear",
   "Phoenix.OptionsWidth" : "Width",
   "Phoenix.OptionsHeight" : "Height",
 
