@@ -5,13 +5,13 @@
       <div class="header-fields header-grid">
           <div class="header" style="grid-area: header">
               <div class="maininfo">
-                <div class="header-border" style="width: 75%;">
+                <div class="header-border" style="width: 100%;">
                   <!-- <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150"/> -->
 
                   <!-- PLAYER NAME -->
                   <div class="headernamegrid">
                       <div class="headerinputtext" style="font-size: 3rem;">{{localize "Phoenix.ActorName"}}</div>
-                      <div class="headerinputfield charname" style="font-size: 2rem;"><input name="name" class="noborder"
+                      <div class="headerinputfield charname" style="font-size: 3rem;"><input name="name" class="noborder"
                                                                                              type="text" value="{{name}}" placeholder="Name" style="height: auto;"/></div>
                   </div>
               </div>
@@ -86,8 +86,9 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="phoenix sheet-tabs tabs" style="line-height: 29px; border-top: 2px solid rgb(22, 22, 22); border-bottom: 2px solid rgb(22, 22, 22);" data-group="primary">
-    <a class="tab-select" data-tab="drag">{{localize "Phoenix.Inventory"}}</a>
-    <a class="tab-select" data-tab="notes">{{localize "Phoenix.Notes"}}</a>
+      <a class="tab-select" data-tab="drag">{{localize "Phoenix.Inventory"}}</a>
+      <a class="tab-select" data-tab="notes">{{localize "Phoenix.Notes"}}</a>
+      <a class="tab-select" data-tab="notes">{{localize "Phoenix.Skills"}}</a>
     <!-- <a class="tab-select" data-tab="items">Items</a> -->
 
   </nav>

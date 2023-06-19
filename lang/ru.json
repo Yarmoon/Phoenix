@@ -23,6 +23,7 @@
   "Phoenix.Pips" : "Pips",
   "Phoenix.Inventory" : "Инвентарь",
   "Phoenix.Notes" : "Записи",
+  "Phoenix.Skills": "Навыки",
   "Phoenix.Storage" : "Хранилище",
   "Phoenix.Options" : "Опции",
 
