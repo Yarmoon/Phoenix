@@ -175,7 +175,7 @@ export class PhoenixStorageSheet extends ActorSheet {
         // Add Inventory Item
         html.find('.item-create').click(ev => {
 
-            let creatableItems = ['item', 'weapon', 'spell', 'armor', 'condition', 'storage'];
+            let creatableItems = ['item', 'storage'];
             let selectList = "";
 
             creatableItems.forEach(type => selectList += "<option value='" + type + "'>" + type + "</option>")

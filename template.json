@@ -88,7 +88,8 @@
   "Item": {
     "types": [
       "item",
-      "storage"
+      "storage",
+      "skill"
     ],
     "templates": {
       "base": {
@@ -128,7 +129,8 @@
       "cost": 0,
       "tag": "",
       "placement": "hand",
-      "color": "white"
+      "color": "white",
+      "aboba": 0
     },
     "storage": {
       "templates": [
@@ -142,6 +144,11 @@
       },
       "tag": "",
       "color": "white"
+    },
+    "skill": {
+      "id": "jumping",
+      "value": 0,
+      "parentSkill": "athletics"
     }
   }
 }

@@ -20,21 +20,27 @@ export class PhoenixActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    const data = super.getData();
-    data.dtypes = ["String", "Number", "Boolean"];
+    const context = super.getData();
+    context.dtypes = ["String", "Number", "Boolean"];
 
-    const superData = data.data.system;
+    const superData = context.data.system;
+
+    // Use a safe clone of the actor data for further operations.
+    const actorData = this.actor.toObject(false);
+
+    context.system = actorData.system;
+    context.flags = actorData.flags;
 
     // Prepare items.
     if (this.actor.type == 'character') {
-      this._prepareCharacterItems(data);
+      this._prepareCharacterItems(context);
     }
 
-    if (data.data.system.settings == null) {
-      data.data.system.settings = {};
+    if (context.data.system.settings == null) {
+      context.data.system.settings = {};
     }
 
-    return data.data;
+    return context;
   }
 
   /**
@@ -44,16 +50,18 @@ export class PhoenixActorSheet extends ActorSheet {
    *
    * @return {undefined}
    */
-  _prepareCharacterItems(sheetData) {
+  _prepareCharacterItems(context) {
 
-    const actorData = sheetData.actor;
+    const actorData = context.actor;
 
     // Initialize containers.
     const gear = [];
+    const primarySkills = [];
+    const secondarySkills = [];
 
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
-    for (let i of sheetData.items) {
+    for (let i of context.items) {
       let item = i.system;
       i.img = i.img || DEFAULT_TOKEN;
 
@@ -74,6 +82,24 @@ export class PhoenixActorSheet extends ActorSheet {
       }
       item.pips.html = pipHtml;
       // End of the pip handler
+
+      // Skills handling
+      if (i.type === "skill"){
+        if (i.system.parentSkill === "strength" ||
+            i.system.parentSkill === "dexterity" ||
+            i.system.parentSkill === "constitution" ||
+            i.system.parentSkill === "intelligence" ||
+            i.system.parentSkill === "wisdom" ||
+            i.system.parentSkill === "charisma"){
+          primarySkills.push(i)
+        }
+        else {
+          console.log(i)
+          secondarySkills.push(i)
+        }
+        continue
+      }
+      //End of skills handle
 
       // Now we'll set tags
       if (i.type === "item") { item.isWeapon = false; item.isCondition = false; }
@@ -112,7 +138,9 @@ export class PhoenixActorSheet extends ActorSheet {
       gear.push(i);
     }
     // Assign and return
-    actorData.gear = gear;
+    context.gear = gear;
+    context.primarySkills = primarySkills;
+    context.secondatySkills = secondarySkills;
   }
 
   /** @override */
@@ -160,7 +188,6 @@ export class PhoenixActorSheet extends ActorSheet {
       });
       t.render(true);
     });
-
 
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
@@ -233,7 +260,6 @@ export class PhoenixActorSheet extends ActorSheet {
 
       this.actor.updateEmbeddedDocuments('Item', [item]);
     });
-
 
     html.on('mousedown', '.damage-swap', ev => {
       const li = ev.currentTarget.closest(".item");
