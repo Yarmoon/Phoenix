@@ -51,6 +51,8 @@
   "Phoenix.ItemMaxStore" : "Макс.",
   "Phoenix.Item" : "Предмет",
 
+  "Phoenix.SkillName": "Навык",
+
   "Phoenix.Cancel" : "Cancel",
 
   "Phoenix.Roll" : "Roll",

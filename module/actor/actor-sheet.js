@@ -10,7 +10,7 @@ export class PhoenixActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["phoenix", "sheet", "actor", "character"],
       template: "systems/phoenix/templates/actor/actor-sheet.html",
-      width: 742,
+      width: 800,
       height: 800,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "character" }]
     });
@@ -140,7 +140,7 @@ export class PhoenixActorSheet extends ActorSheet {
     // Assign and return
     context.gear = gear;
     context.primarySkills = primarySkills;
-    context.secondatySkills = secondarySkills;
+    context.secondarySkills = secondarySkills;
   }
 
   /** @override */
