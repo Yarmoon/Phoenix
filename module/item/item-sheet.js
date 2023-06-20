@@ -31,6 +31,9 @@ export class PhoenixItemSheet extends ItemSheet {
   /** @override */
   getData() {
     const data = super.getData();
+
+    data.dtypes = ["String", "Number", "Boolean"];
+
     return data.data;
   }
 

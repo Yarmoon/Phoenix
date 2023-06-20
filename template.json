@@ -129,8 +129,7 @@
       "cost": 0,
       "tag": "",
       "placement": "hand",
-      "color": "white",
-      "aboba": 0
+      "color": "white"
     },
     "storage": {
       "templates": [
@@ -148,7 +147,8 @@
     "skill": {
       "id": "jumping",
       "value": 0,
-      "parentSkill": "athletics"
+      "parentSkill": "strength",
+      "isPrimary": true
     }
   }
 }

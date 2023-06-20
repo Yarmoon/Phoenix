@@ -10,8 +10,13 @@
                     <input type="text" name="system.value" value="{{system.value}}" data-dtype="String" class="item-text"/>
                 </div>
                 <div class="resource">
-                    <label class="resource-label">{{localize "Phoenix.parentSkill"}}</label>
+                    <label class="resource-label">{{localize "Phoenix.ParentSkill"}}</label>
                     <input type="text" name="system.parentSkill" value="{{system.parentSkill}}" data-dtype="String" class="item-text"/>
+                </div>
+                {{log system}}
+                <div class="resource">
+                    <label class="resource-label">{{localize "Phoenix.IsPrimary"}}</label>
+                    <input type="checkbox" name="system.isPrimary" {{checked  system.isPrimary}}>
                 </div>
             </div>
 

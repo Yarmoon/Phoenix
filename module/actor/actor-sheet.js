@@ -32,7 +32,7 @@ export class PhoenixActorSheet extends ActorSheet {
     context.flags = actorData.flags;
 
     // Prepare items.
-    if (this.actor.type == 'character') {
+    if (this.actor.type === 'character') {
       this._prepareCharacterItems(context);
     }
 
@@ -56,8 +56,13 @@ export class PhoenixActorSheet extends ActorSheet {
 
     // Initialize containers.
     const gear = [];
-    const primarySkills = [];
-    const secondarySkills = [];
+    const strSkills = [];
+    const dexSkills = [];
+    const conSkills = [];
+    const intSkills = [];
+    const wisSkills = [];
+    const chaSkills = [];
+    const generalSkills = [];
 
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
@@ -85,17 +90,27 @@ export class PhoenixActorSheet extends ActorSheet {
 
       // Skills handling
       if (i.type === "skill"){
-        if (i.system.parentSkill === "strength" ||
-            i.system.parentSkill === "dexterity" ||
-            i.system.parentSkill === "constitution" ||
-            i.system.parentSkill === "intelligence" ||
-            i.system.parentSkill === "wisdom" ||
-            i.system.parentSkill === "charisma"){
-          primarySkills.push(i)
+        if (i.system.parentSkill === "strength"){
+          strSkills.push(i)
+        }
+        else if (i.system.parentSkill === "dexterity"){
+          dexSkills.push(i)
+        }
+        else if (i.system.parentSkill === "constitution"){
+          conSkills.push(i)
+        }
+        else if (i.system.parentSkill === "intelligence"){
+          intSkills.push(i)
+        }
+        else if (i.system.parentSkill === "wisdom"){
+          wisSkills.push(i)
+        }
+        else if (i.system.parentSkill === "charisma"){
+          chaSkills.push(i)
         }
         else {
           console.log(i)
-          secondarySkills.push(i)
+          generalSkills.push(i)
         }
         continue
       }
@@ -139,8 +154,13 @@ export class PhoenixActorSheet extends ActorSheet {
     }
     // Assign and return
     context.gear = gear;
-    context.primarySkills = primarySkills;
-    context.secondarySkills = secondarySkills;
+    context.strSkills = strSkills;
+    context.dexSkills = dexSkills;
+    context.conSkills = conSkills;
+    context.intSkills = intSkills;
+    context.wisSkills = wisSkills;
+    context.chaSkills = chaSkills;
+    context.generalSkills = generalSkills;
   }
 
   /** @override */
