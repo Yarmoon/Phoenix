@@ -51,13 +51,35 @@ Hooks.once('init', async function () {
 
     // If you need to add Handlebars helpers, here are a few useful examples:
     Handlebars.registerHelper('concat', function () {
-        var outStr = '';
-        for (var arg in arguments) {
+        let outStr = '';
+        for (let arg in arguments) {
             if (typeof arguments[arg] != 'object') {
                 outStr += arguments[arg];
             }
         }
         return outStr;
+    });
+
+    Handlebars.registerHelper('tostat', function (){
+        if (arguments[0] === 0){
+            return "Strength"
+        }
+        if (arguments[0] === 1){
+            return "Dexterity"
+        }
+        if (arguments[0] === 2){
+            return "Constitution"
+        }
+        if (arguments[0] === 3){
+            return "Dexterity"
+        }
+        if (arguments[0] === 4){
+            return "Dexterity"
+        }
+        if (arguments[0] === 5){
+            return "Dexterity"
+        }
+        console.log(arguments[0])
     });
 
     Handlebars.registerHelper('toLowerCase', function (str) {

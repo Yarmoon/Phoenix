@@ -147,8 +147,7 @@
     "skill": {
       "id": "jumping",
       "value": 0,
-      "parentSkill": "strength",
-      "isPrimary": true
+      "parentSkill": "strength"
     }
   }
 }

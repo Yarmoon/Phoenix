@@ -1,271 +1,284 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
 
-  {{!-- Sheet Header --}}
-  <header class="char-header header-grid">
-      <div class="header-fields header-grid">
-          <div class="header" style="grid-area: header">
-              <div class="maininfo">
-                <div class="header-border" style="width: 100%;">
-                  <!-- <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150"/> -->
+    {{!-- Sheet Header --}}
+    <header class="char-header header-grid">
+        <div class="header-fields header-grid">
+            <div class="header" style="grid-area: header">
+                <div class="maininfo">
+                    <div class="header-border" style="width: 100%;">
+                        <!-- <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150"/> -->
 
-                  <!-- PLAYER NAME -->
-                  <div class="headernamegrid">
-                      <div class="headerinputtext" style="font-size: 3rem;">{{localize "Phoenix.ActorName"}}</div>
-                      <div class="headerinputfield charname" style="font-size: 3rem;"><input name="name" class="noborder"
-                                                                                             type="text" value="{{data.name}}" placeholder="Name" style="height: auto;"/></div>
-                  </div>
-              </div>
+                        <!-- PLAYER NAME -->
+                        <div class="headernamegrid">
+                            <div class="headerinputtext" style="font-size: 3rem;">{{localize "Phoenix.ActorName"}}</div>
+                            <div class="headerinputfield charname" style="font-size: 3rem;"><input name="name"
+                                                                                                   class="noborder"
+                                                                                                   type="text"
+                                                                                                   value="{{data.name}}"
+                                                                                                   placeholder="Name"
+                                                                                                   style="height: auto;"/>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="abilities">
-                  <div class="horizontalFlex blockborder">
-                      <!-- Strength -->
-                      <div class="statblock">
-                          <label for="system.stat.strength.value" class="statName minmaxtext rollable stat-roll" data-key="strength"
-                                 data-roll="1d20" data-label="Strength">{{localize "Phoenix.ActorStr"}}</label>
+                    <div class="abilities">
+                        <div class="horizontalFlex blockborder">
+                            <!-- Strength -->
+                            <div class="statblock">
+                                <label for="system.stat.strength.value" class="statName minmaxtext rollable stat-roll"
+                                       data-key="strength"
+                                       data-roll="1d20" data-label="Strength">{{localize "Phoenix.ActorStr"}}</label>
 
-                          <input class="minmax-input darkGreyText" type="text" name="system.stats.strength.value"
-                                 value="{{system.stats.strength.value}}" data-dtype="Number" />
-                      </div>
+                                <input class="minmax-input darkGreyText" type="text" name="system.stats.strength.value"
+                                       value="{{system.stats.strength.value}}" data-dtype="Number"/>
+                            </div>
 
-                      <!-- Dexterity -->
-                      <div class="statblock">
-                          <label for="system.stat.dexterity.value" class="statName minmaxtext rollable stat-roll" data-key="dexterity"
-                                 data-roll="1d20" data-label="Dexterity">{{localize "Phoenix.ActorDex"}}</label>
+                            <!-- Dexterity -->
+                            <div class="statblock">
+                                <label for="system.stat.dexterity.value" class="statName minmaxtext rollable stat-roll"
+                                       data-key="dexterity"
+                                       data-roll="1d20" data-label="Dexterity">{{localize "Phoenix.ActorDex"}}</label>
 
-                          <input class="minmax-input darkGreyText" type="text" name="system.stats.dexterity.value"
-                                 value="{{system.stats.dexterity.value}}" data-dtype="Number" />
-                      </div>
+                                <input class="minmax-input darkGreyText" type="text" name="system.stats.dexterity.value"
+                                       value="{{system.stats.dexterity.value}}" data-dtype="Number"/>
+                            </div>
 
-                      <!-- Constitution -->
-                      <div class="statblock">
-                          <label for="system.stat.constitution.value" class="statName minmaxtext rollable stat-roll" data-key="constitution"
-                                 data-roll="1d20" data-label="Constitution">{{localize "Phoenix.ActorCon"}}</label>
+                            <!-- Constitution -->
+                            <div class="statblock">
+                                <label for="system.stat.constitution.value"
+                                       class="statName minmaxtext rollable stat-roll" data-key="constitution"
+                                       data-roll="1d20" data-label="Constitution">{{localize
+                                        "Phoenix.ActorCon"}}</label>
 
-                          <input class="minmax-input darkGreyText" type="text" name="system.stats.constitution.value"
-                                 value="{{system.stats.constitution.value}}" data-dtype="Number" />
-                      </div>
+                                <input class="minmax-input darkGreyText" type="text"
+                                       name="system.stats.constitution.value"
+                                       value="{{system.stats.constitution.value}}" data-dtype="Number"/>
+                            </div>
 
-                      <!-- Intelligence -->
-                      <div class="statblock">
-                          <label for="system.stat.intelligence.value" class="statName minmaxtext rollable stat-roll" data-key="intelligence"
-                                 data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorInt"}}</label>
+                            <!-- Intelligence -->
+                            <div class="statblock">
+                                <label for="system.stat.intelligence.value"
+                                       class="statName minmaxtext rollable stat-roll" data-key="intelligence"
+                                       data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorInt"}}</label>
 
-                          <input class="minmax-input darkGreyText" type="text" name="system.stats.intelligence.value"
-                                 value="{{system.stats.intelligence.value}}" data-dtype="Number" />
-                      </div>
+                                <input class="minmax-input darkGreyText" type="text"
+                                       name="system.stats.intelligence.value"
+                                       value="{{system.stats.intelligence.value}}" data-dtype="Number"/>
+                            </div>
 
-                      <!-- Wisdom -->
-                      <div class="statblock">
-                          <label for="system.stat.wisdom.value" class="statName minmaxtext rollable stat-roll" data-key="wisdom"
-                                 data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorWis"}}</label>
+                            <!-- Wisdom -->
+                            <div class="statblock">
+                                <label for="system.stat.wisdom.value" class="statName minmaxtext rollable stat-roll"
+                                       data-key="wisdom"
+                                       data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorWis"}}</label>
 
-                          <input class="minmax-input darkGreyText" type="text" name="system.stats.wisdom.value"
-                                 value="{{system.stats.wisdom.value}}" data-dtype="Number" />
-                      </div>
+                                <input class="minmax-input darkGreyText" type="text" name="system.stats.wisdom.value"
+                                       value="{{system.stats.wisdom.value}}" data-dtype="Number"/>
+                            </div>
 
-                      <!-- Charisma -->
-                      <div class="statblock">
-                          <label for="system.stat.charisma.value" class="statName minmaxtext rollable stat-roll" data-key="charisma"
-                                 data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorCha"}}</label>
+                            <!-- Charisma -->
+                            <div class="statblock">
+                                <label for="system.stat.charisma.value" class="statName minmaxtext rollable stat-roll"
+                                       data-key="charisma"
+                                       data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorCha"}}</label>
 
-                          <input class="minmax-input darkGreyText" type="text" name="system.stats.charisma.value"
-                                 value="{{system.stats.charisma.value}}" data-dtype="Number" />
-                      </div>
-                  </div>
-                </div>
+                                <input class="minmax-input darkGreyText" type="text" name="system.stats.charisma.value"
+                                       value="{{system.stats.charisma.value}}" data-dtype="Number"/>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="base-resources">
-                    <div class="horizontalFlex blockborder">
-                        <!-- HP -->
-                        <div class="healthblock">
-                            <label for="system.health.value" class="statName minmaxtext rollable stat-roll" data-key="health"
-                                   data-roll="1d10" data-label="Health">{{localize "Phoenix.ActorHP"}}</label>
-                            <div class="horizontalFlex">
-                                <input class="minmax-input darkGreyText" style="height: 100%" type="text" name="system.health.value"
-                                       value="{{system.health.value}}" data-dtype="Number" />
-                                <div class="darkGreyText" style="height: 100%; font-size: 24px" type="text">/</div>
-                                <input class="minmax-input darkGreyText" style="height: 100%" type="text" name="system.health.max"
-                                       value="{{system.health.max}}" data-dtype="Number" />
+                    <div class="base-resources">
+                        <div class="horizontalFlex blockborder">
+                            <!-- HP -->
+                            <div class="healthblock">
+                                <label for="system.health.value" class="statName minmaxtext rollable stat-roll"
+                                       data-key="health"
+                                       data-roll="1d10" data-label="Health">{{localize "Phoenix.ActorHP"}}</label>
+                                <div class="horizontalFlex">
+                                    <input class="minmax-input darkGreyText" style="height: 100%" type="text"
+                                           name="system.health.value"
+                                           value="{{system.health.value}}" data-dtype="Number"/>
+                                    <div class="darkGreyText" style="height: 100%; font-size: 24px" type="text">/</div>
+                                    <input class="minmax-input darkGreyText" style="height: 100%" type="text"
+                                           name="system.health.max"
+                                           value="{{system.health.max}}" data-dtype="Number"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-              </div>
-          </div>
+            </div>
 
-          <div style="grid-area: portrait" ;>
+            <div style="grid-area: portrait" ;>
 
-              <img class="portrait" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="250" width="250" />
+                <img class="portrait" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="250"
+                     width="250"/>
 
-          </div>
-      </div>
-  </header>
+            </div>
+        </div>
+    </header>
 
-  {{!-- Sheet Tab Navigation --}}
-  <nav class="phoenix sheet-tabs tabs" style="line-height: 29px; border-top: 2px solid rgb(22, 22, 22); border-bottom: 2px solid rgb(22, 22, 22);" data-group="primary">
-      <a class="tab-select" data-tab="drag">{{localize "Phoenix.Inventory"}}</a>
-      <a class="tab-select" data-tab="notes">{{localize "Phoenix.Notes"}}</a>
-      <a class="tab-select" data-tab="skills">{{localize "Phoenix.Skills"}}</a>
-    <!-- <a class="tab-select" data-tab="items">Items</a> -->
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="phoenix sheet-tabs tabs"
+         style="line-height: 29px; border-top: 2px solid rgb(22, 22, 22); border-bottom: 2px solid rgb(22, 22, 22);"
+         data-group="primary">
+        <a class="tab-select" data-tab="drag">{{localize "Phoenix.Inventory"}}</a>
+        <a class="tab-select" data-tab="notes">{{localize "Phoenix.Notes"}}</a>
+        <a class="tab-select" data-tab="skills">{{localize "Phoenix.Skills"}}</a>
+        <!-- <a class="tab-select" data-tab="items">Items</a> -->
 
-  </nav>
+    </nav>
 
-  {{!-- Sheet Body --}}
-  <section class="sheet-body">
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
 
-    {{!-- Notes Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="notes">
-      {{editor system.notes target="system.notes" button=true owner=owner editable=true}}
-    </div>
+        {{!-- Notes Tab --}}
+        <div class="tab biography" data-group="primary" data-tab="notes">
+            {{editor system.notes target="system.notes" button=true owner=owner editable=true}}
+        </div>
 
-    {{!-- Skills Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="skills">
-        <div style="display: flex; justify-content: center">
-        <div class="horizontalFlex skills-tab" style="width: 750px">
-            <ol class="items-list" style="width: 350px">
-            <li class="item flexrow item-header">
-                <div class="item-image"></div>
-                <div class="item-name">{{localize "Phoenix.SkillName"}}</div>
-            </li>
+        {{!-- Skills Tab --}}
+        <div class="tab biography" data-group="primary" data-tab="skills">
+            <div style="display: flex; justify-content: center">
+                <div class="horizontalFlex skills-tab" style="width: 800px; justify-content: center">
+                    <ol class="items-list" style="width: 700px">
+                        {{#each skills as |list id|}}
+                            {{#if list}}
+                                <div class="headerinputtext" style="font-size: 2rem; margin-bottom: 3px">{{localize (concat "Phoenix." (tostat id))}}</div>
+                                {{#each list as |item id|}}
+                                    <div class="horizontalFlex" style="border: 2px black solid; margin: 1px; padding: 5px">
+                                        <li class="item skillrow" style="width: 300px" data-item-id="{{item.skill._id}}">
+                                            <div class="horizontalFlex">
+                                                <div class="item-image"><img src="{{item.skill.img}}" title="{{item.skill.name}}" width="24"
+                                                                         height="24"/></div>
+                                                <h4 class="item-name">{{item.skill.name}} {{item.skill.system.value}}</h4>
+                                            </div>
+                                            <div class="item-controls">
+                                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </li>
+                                    {{#if item.secondaries}}
+                                        <div class="verticalFlex">
+                                        {{#each item.secondaries as |secondary id|}}
+                                            <li class="item skillrow" style="width: 300px" data-item-id="{{secondary._id}}">
+                                                <div class="horizontalFlex">
+                                                    <div class="item-image"><img src="{{secondary.img}}" title="{{secondary.name}}" width="24"
+                                                                                 height="24"/></div>
+                                                    <h4 class="item-name">{{secondary.name}}  {{secondary.system.value}}</h4>
+                                                </div>
+                                                <div class="item-controls">
+                                                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                                                </div>
+                                            </li>
+                                        {{/each}}
+                                        </div>
+                                    {{/if}}
+                                    </div>
+                                {{/each}}
+                            {{/if}}
+                        {{/each}}
+                    </ol>
+                </div>
+            </div>
+        </div>
 
-            {{log items}}
-            {{#each primarySkills as |item id|}}
-                <li class="item flexrow" data-item-id="{{item._id}}">
-                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
-                    <h4 class="item-name">{{item.name}}</h4>
-                    <div class="item-controls">
-                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                    </div>
-                </li>
-            {{/each}}
-        </ol>
-
-            <ol class="items-list" style="width: 350px">
+        {{!-- Owned Items Tab --}}
+        <div class="tab items" data-group="primary" data-tab="items">
+            <!-- ITEMS -->
+            <ol class="items-list">
                 <li class="item flexrow item-header">
-                    <div class="item-image"></div>
-                    <div class="item-name">{{localize "Phoenix.SkillName"}}</div>
                     <div class="item-controls">
-                        <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> {{localize "Phoenix.InventoryAddItem"}}</a>
+                        <a class="item-control item-create" title="Create Item" data-type="item"><i
+                                class="fas fa-plus"></i> {{localize "Phoenix.InventoryAddItem"}}</a>
                     </div>
                 </li>
 
-
-                {{#each secondarySkills as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
-                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
-                        <h4 class="item-name">{{item.name}}</h4>
-                        <div class="item-controls">
-                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                {{/each}}
+                <div class="seperatorLine"></div>
             </ol>
         </div>
-        </div>
-    </div>
 
-    {{!-- Owned Items Tab --}}
-    <div class="tab items" data-group="primary" data-tab="items">
-      <!-- ITEMS -->
-      <ol class="items-list">
-        <li class="item flexrow item-header">
-          <div class="item-controls">
-            <a class="item-control item-create" title="Create Item" data-type="item"><i class="fas fa-plus"></i> {{localize "Phoenix.InventoryAddItem"}}</a>
-          </div>
-        </li>
-
-        <div class="seperatorLine"></div>
-        Hand
-        {{#each items.gear as |item id|}}
-        <li class="item flexrow dropitem" data-item-id="{{item._id}}">
-          <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
-          <h4 class="skill-name list-roll description-roll" style="flex-grow: 1.5;">{{item.name}}</h4>
-          <div class="skill-stat list-roll item-quantity">{{item.system.quantity}}</div>
-          <div class="skill-stat">{{item.system.weight}}</div>
-          <div class="skill-stat">{{item.system.cost}}</div>
-          <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-          </div>
-        </li>
-        {{/each}}
-      </ol>
-    </div>
-
-    {{!-- Item Drag Tab --}}
-    <div class="tab items" data-group="primary" data-tab="drag">
-      <div class="" data-item-id="{{item._id}}">
-        <div>
-          <div class="item-container" id="drag-area">
-            <div class="item-container-controls">
-              <a class="item-control item-create" title="Create Item" data-type="item"><i class="fas fa-plus"></i> {{localize "Phoenix.InventoryAddItem"}}</a>
-            </div>
-            {{log gear}}
-              {{log items}}
-          {{#each gear as |item id|}}
+        {{!-- Item Drag Tab --}}
+        <div class="tab items" data-group="primary" data-tab="drag">
+            <div class="" data-item-id="{{item._id}}">
+                <div>
+                    <div class="item-container" id="drag-area">
+                        <div class="item-container-controls">
+                            <a class="item-control item-create" title="Create Item" data-type="item"><i
+                                    class="fas fa-plus"></i> {{localize "Phoenix.InventoryAddItem"}}</a>
+                        </div>
+                        {{#each gear as |item id|}}
 
 
-            <div class="item-card item dragItems dropitem" style="width: {{item.system.size.x}}; height: {{item.system.size.y}}; transform: translate3d({{item.system.sheet.currentX}}px,{{item.system.sheet.currentY}}px, 0); z-index: {{item.system.sheet.zIndex}};"
-              data-item-id="{{item._id}}" id="{{item._id}}">
-              <div class="overlay" id="overlay" style="background-color: {{item.system.color}};"></div>
-              <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
-              <div class="item-card-header flex-between" data-item-id="{{item._id}}">
-                {{#if item.system.isSpell}}
-                <span class="item-card-star">★</span>
-                {{/if}}
-                <div class="list-roll item-roll item-card-title">
-                  {{item.name}}
-                </div>
-              </div>
-              <div class="grid grid-3col pip-button list-roll" style="width: 50px; margin: 5px;">
-                {{{item.system.pips.html}}}
-              </div>
-              <div class="item-card-tag">{{item.system.tag}}</div>
-              {{#if item.system.isWeapon}}
-              {{#if item.system.weapon.canSwap}}
-              <div class="item-card-damage list-roll damage-swap" style="font-size: 1.3em;">{{item.system.weapon.dmg1}}
-                <div style="color: grey; font-size: 0.8em;">{{item.system.weapon.dmg2}}</div>
-              </div>
-              {{else}}
-              <div class="item-card-damage">{{item.system.weapon.dmg1}}</div>
-              {{/if}}
-              {{/if}}
-              {{#if item.system.armor.value}}
-              <div class="item-card-damage">{{item.system.armor.value}} {{localize "Phoenix.ActorArmor"}}</div>
+                            <div class="item-card item dragItems dropitem"
+                                 style="width: {{item.system.size.x}}; height: {{item.system.size.y}}; transform: translate3d({{item.system.sheet.currentX}}px,{{item.system.sheet.currentY}}px, 0); z-index: {{item.system.sheet.zIndex}};"
+                                 data-item-id="{{item._id}}" id="{{item._id}}">
+                                <div class="overlay" id="overlay"
+                                     style="background-color: {{item.system.color}};"></div>
+                                <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+                                <div class="item-card-header flex-between" data-item-id="{{item._id}}">
+                                    {{#if item.system.isSpell}}
+                                        <span class="item-card-star">★</span>
+                                    {{/if}}
+                                    <div class="list-roll item-roll item-card-title">
+                                        {{item.name}}
+                                    </div>
+                                </div>
+                                <div class="grid grid-3col pip-button list-roll" style="width: 50px; margin: 5px;">
+                                    {{{item.system.pips.html}}}
+                                </div>
+                                <div class="item-card-tag">{{item.system.tag}}</div>
+                                {{#if item.system.isWeapon}}
+                                    {{#if item.system.weapon.canSwap}}
+                                        <div class="item-card-damage list-roll damage-swap"
+                                             style="font-size: 1.3em;">{{item.system.weapon.dmg1}}
+                                            <div style="color: grey; font-size: 0.8em;">{{item.system.weapon.dmg2}}</div>
+                                        </div>
+                                    {{else}}
+                                        <div class="item-card-damage">{{item.system.weapon.dmg1}}</div>
+                                    {{/if}}
+                                {{/if}}
+                                {{#if item.system.armor.value}}
+                                    <div class="item-card-damage">{{item.system.armor.value}} {{localize
+                                            "Phoenix.ActorArmor"}}</div>
 
-              {{/if}}
-              {{#if item.system.store}}
-              <div class="item-card-field-container">
-                <input class="item-card-field noborder item-input"
-                  style="position: absolute; text-align: left; left: 5px;" type="text" name="system.store.value"
-                  value="{{item.system.store.value}}" data-dtype="Number" data-edit="item.system.store.value" />
-                <div class="item-card-max">/{{item.system.store.max}}</div>
-              </div>
-              {{/if}}
-              {{#if item.system.desc}}
-              <div class="item-card-desc">
-                {{item.system.desc}}
-              </div>
-              {{/if}}
-              <img src="{{item.img}}" title="{{item.name}}" class="item-card-image" style="transform:rotate({{item.system.sheet.rotation}}deg) scale({{item.system.size.aspect}});"/>
-              <div class="item-controls item-card-chat">
-                <a class="item-control item-rotate" title="Rotate Item"><i class="fas fa-sync-alt"></i></a>
-                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                <!-- <i class="fas fa-comment-dots list-roll description-roll"></i> -->
-              </div>
-            </div>
+                                {{/if}}
+                                {{#if item.system.store}}
+                                    <div class="item-card-field-container">
+                                        <input class="item-card-field noborder item-input"
+                                               style="position: absolute; text-align: left; left: 5px;" type="text"
+                                               name="system.store.value"
+                                               value="{{item.system.store.value}}" data-dtype="Number"
+                                               data-edit="item.system.store.value"/>
+                                        <div class="item-card-max">/{{item.system.store.max}}</div>
+                                    </div>
+                                {{/if}}
+                                {{#if item.system.desc}}
+                                    <div class="item-card-desc">
+                                        {{item.system.desc}}
+                                    </div>
+                                {{/if}}
+                                <img src="{{item.img}}" title="{{item.name}}" class="item-card-image"
+                                     style="transform:rotate({{item.system.sheet.rotation}}deg) scale({{item.system.size.aspect}});"/>
+                                <div class="item-controls item-card-chat">
+                                    <a class="item-control item-rotate" title="Rotate Item"><i
+                                            class="fas fa-sync-alt"></i></a>
+                                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                                    <!-- <i class="fas fa-comment-dots list-roll description-roll"></i> -->
+                                </div>
+                            </div>
 
-            <!-- <div class="itemt dragItems" id="{{item._id}}" data-item-id="{{item._id}}">
+                            <!-- <div class="itemt dragItems" id="{{item._id}}" data-item-id="{{item._id}}">
 
               {{item.name}}
             </div> -->
-          {{/each}}
-          </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </form>

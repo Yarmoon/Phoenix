@@ -343,7 +343,7 @@
 
 .phoenix .items-list {
     list-style: none;
-    margin: 7px 0;
+    margin: 0;
     padding: 0;
     /* overflow-y: auto; */
 }
@@ -355,8 +355,7 @@
 .phoenix .items-list .item {
     height: 35px;
     line-height: 24px;
-    padding: 3px 0;
-    border-bottom: 1px solid #BBB;
+    padding: 5px 0;
 }
 
 .phoenix .skills-list .item {
@@ -364,6 +363,11 @@
     line-height: 21px;
     padding: 3px 0;
     border-bottom: 1px solid #BBB;
+}
+
+.phoenix .skillrow {
+    display: flex;
+    justify-content: space-between;
 }
 
 .phoenix .items-list .item .item-image {
@@ -427,7 +431,7 @@
 .phoenix .items-list .item-controls {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 86px;
-    flex: 0 0 200px;
+    flex: 0 0 40px;
     text-align: right;
 }
 
@@ -439,6 +443,7 @@
     color: #111;
     text-align: center;
     font-kerning: auto;
+    width: 100px;
 }
 
 .phoenix .stresstext {
@@ -511,7 +516,6 @@
 }
 
 .phoenix .skills-tab {
-    padding: 5px;
 }
 .phoenix .hpminmax{
     width: 50px;
