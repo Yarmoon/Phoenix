@@ -71,13 +71,13 @@ Hooks.once('init', async function () {
             return "Constitution"
         }
         if (arguments[0] === 3){
-            return "Dexterity"
+            return "Intelligence"
         }
         if (arguments[0] === 4){
-            return "Dexterity"
+            return "Wisdom"
         }
         if (arguments[0] === 5){
-            return "Dexterity"
+            return "Charisma"
         }
         console.log(arguments[0])
     });
@@ -87,7 +87,7 @@ Hooks.once('init', async function () {
     });
 
     CONFIG.Combat.initiative = {
-        formula: "1d20+@stats.dexterity.value",
+        formula: "1d20+@stats.dexterity.value+@stats.wisdom.value",
         decimals: 2
     };
 
