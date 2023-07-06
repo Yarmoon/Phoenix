@@ -116,6 +116,49 @@
                      width="250"/>
 
             </div>
+
+            <div style="grid-area: underheader">
+
+                <div class="maininfo">
+
+                    <div class="abilities">
+                        <div class="horizontalFlex blockborder">
+                            <!-- Exhaustion -->
+                            <div class="statblock">
+                                <label for="system.stat.exhaustion" class="statName minmaxtext rollable stat-roll"
+                                       data-key="exhaustion"
+                                       data-roll="1d20" data-label="Exhaustion">{{localize "Phoenix.Exaustion"}}</label>
+
+                                <input class="minmax-input darkGreyText" type="text" name="system.stats.exhaustion"
+                                       value="{{system.stats.exhaustion}}" data-dtype="Number"/>
+                            </div>
+
+                            <div class="statblock">
+                                <label for="system.stat.magicExhaustion" class="statName minmaxtext rollable stat-roll"
+                                       data-key="magicExhaustion"
+                                       data-roll="1d20" data-label="MagicExhaustion">{{localize "Phoenix.MagicExaustion"}}</label>
+
+                                <input class="minmax-input darkGreyText" type="text" name="system.stats.magicExhaustion"
+                                       value="{{system.stats.magicExhaustion}}" data-dtype="Number"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="base-resources">
+                        <div class="horizontalFlex blockborder">
+                            <!-- Armor -->
+                            <div class="healthblock">
+                                <label for="system.stat.strength.value" class="statName minmaxtext rollable stat-roll"
+                                       data-key="armor"
+                                       data-roll="1d20" data-label="MagicExhaustion">{{localize "Phoenix.Armor"}}</label>
+
+                                <input class="minmax-input darkGreyText" type="text" name="system.stats.armor"
+                                       value="{{system.stats.armor}}" data-dtype="Number"/>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </header>
 

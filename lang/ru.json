@@ -18,6 +18,9 @@
   "Phoenix.Intelligence" : "Интеллект",
   "Phoenix.Wisdom" : "Чувства",
   "Phoenix.Charisma" : "Личность",
+  "Phoenix.Exaustion": "ИСТ",
+  "Phoenix.MagicExaustion": "М. ИСТ",
+  "Phoenix.Armor": "Броня",
 
   "Phoenix.Max" : "Max",
   "Phoenix.Pips" : "Pips",

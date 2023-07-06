@@ -15,6 +15,8 @@
           "value": 2,
           "max": 2
         },
+        "exhaustion": 0,
+        "magicExhaustion": 0,
         "armor": 0
       }
     },
