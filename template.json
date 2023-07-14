@@ -150,7 +150,6 @@
       "color": "white"
     },
     "skill": {
-      "id": "jumping",
       "value": 0,
       "parentSkill": "strength",
       "availableParents": {

@@ -61,6 +61,7 @@ export class PhoenixActorSheet extends ActorSheet {
             [],
             [],
             [],
+            [],
             []
         ]
         var dict = {
@@ -69,7 +70,8 @@ export class PhoenixActorSheet extends ActorSheet {
             constitution: 2,
             intelligence: 3,
             wisdom: 4,
-            charisma: 5
+            charisma: 5,
+            misc: 6
         }
 
         // Iterate through items, allocating to containers
@@ -104,10 +106,19 @@ export class PhoenixActorSheet extends ActorSheet {
                         secondaries: []
                     })
                 }
-                for (let k = 0; k < 6; k++) {
+
+                skillattribution:
+                for (let k = 0; k < 7; k++) {
+                    if (k === 6 && ! (i.system.parentSkill in dict)) {
+                        skills[6].push({
+                            skill: i,
+                            secondaries: []
+                        })
+                    }
                     for (let j = 0; j < skills[k].length; j++) {
-                        if (skills[k][j].skill.system.id === item.parentSkill) {
+                        if (skills[k][j].skill.name === item.parentSkill) {
                             skills[k][j].secondaries.push(i)
+                            break skillattribution
                         }
                     }
                 }

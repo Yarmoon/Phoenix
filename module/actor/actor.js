@@ -60,6 +60,22 @@ export class PhoenixActor extends Actor {
       "dexterity": {
         "label": "Dexterity",
         "dtype": "String"
+      },
+      "constitution": {
+        "label": "Constitution",
+        "dtype": "String"
+      },
+      "intelligence": {
+        "label": "Intelligence",
+        "dtype": "String"
+      },
+      "wisdom": {
+        "label": "Wisdom",
+        "dtype": "String"
+      },
+      "charisma": {
+        "label": "Charisma",
+        "dtype": "String"
       }
     }
 
