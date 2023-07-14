@@ -152,7 +152,33 @@
     "skill": {
       "id": "jumping",
       "value": 0,
-      "parentSkill": "strength"
+      "parentSkill": "strength",
+      "availableParents": {
+        "strength": {
+          "label": "Strength",
+          "dtype": "String"
+        },
+        "dexterity": {
+          "label": "Dexterity",
+          "dtype": "String"
+        },
+        "constitution": {
+          "label": "Constitution",
+          "dtype": "String"
+        },
+        "intelligence": {
+          "label": "Intelligence",
+          "dtype": "String"
+        },
+        "wisdom": {
+          "label": "Wisdom",
+          "dtype": "String"
+        },
+        "charisma": {
+          "label": "Charisma",
+          "dtype": "String"
+        }
+      }
     }
   }
 }

@@ -17,7 +17,6 @@ export class PhoenixActor extends Actor {
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     if (actorData.type === 'character') this._prepareCharacterData(actorData);
-
   }
   /**
    * Prepare Character type specific data
@@ -34,6 +33,50 @@ export class PhoenixActor extends Actor {
     //   }
     // }
     // data.stats.armor.mod = armorBonus;
+  }
+
+  prepareEmbeddedDocuments() {
+    super.prepareEmbeddedDocuments();
+
+    let parents = this.system.availableParents;
+
+    var dict = {
+      strength: 0,
+      dexterity: 1,
+      constitution: 2,
+      intelligence: 3,
+      wisdom: 4,
+      charisma: 5
+    }
+
+    // Iterate through items, allocating to containers
+    // let totalWeight = 0;
+
+    let availableParents = {
+      "strength": {
+        "label": "Strength",
+        "dtype": "String"
+      },
+      "dexterity": {
+        "label": "Dexterity",
+        "dtype": "String"
+      }
+    }
+
+    for (let i of this.items) {
+      if (i.type === "skill") {
+        if (i.system.parentSkill in dict) {
+          availableParents[i.name] = {
+            "label": i.name,
+            "dtype": "String"
+          }
+        }
+      }
+    }
+
+    for (let i of this.items){
+      i.system.availableParents = availableParents
+    }
   }
 
 
