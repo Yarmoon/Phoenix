@@ -19,7 +19,7 @@
           "max": 2
         },
         "exhaustion": 0,
-        "magicExhaustion": 0,
+        "mentalExhaustion": 0,
         "armor": 0
       }
     },

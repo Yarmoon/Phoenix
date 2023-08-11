@@ -63,6 +63,7 @@
   "Phoenix.Item" : "Предмет",
 
   "Phoenix.SkillName": "Навык",
+  "Phoenix.AddSkill" : "Добавить навык",
 
   "Phoenix.Cancel" : "Cancel",
 

@@ -12,7 +12,6 @@
                 <div class="resource">
                     <label class="resource-label">{{localize "Phoenix.ParentSkill"}}</label>
                     <select class="selectparent" name="system.parentSkill" data-type="String">
-                        {{log system}}
                         {{#select system.parentSkill}}
                             {{#each system.availableParents as |parent key|}}
                                 <option value="{{key}}"> {{localize parent.label}}</option>

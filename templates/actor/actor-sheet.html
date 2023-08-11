@@ -134,12 +134,12 @@
                             </div>
 
                             <div class="statblock">
-                                <label for="system.stat.magicExhaustion" class="statName minmaxtext rollable stat-roll"
-                                       data-key="magicExhaustion"
-                                       data-roll="1d20" data-label="MagicExhaustion">{{localize "Phoenix.MagicExaustion"}}</label>
+                                <label for="system.stat.mentalExhaustion" class="statName minmaxtext rollable stat-roll"
+                                       data-key="mentalExhaustion"
+                                       data-roll="1d20" data-label="mentalExhaustion">{{localize "Phoenix.MagicExaustion"}}</label>
 
-                                <input class="minmax-input darkGreyText" type="text" name="system.stats.magicExhaustion"
-                                       value="{{system.stats.magicExhaustion}}" data-dtype="Number"/>
+                                <input class="minmax-input darkGreyText" type="text" name="system.stats.mentalExhaustion"
+                                       value="{{system.stats.mentalExhaustion}}" data-dtype="Number"/>
                             </div>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                             <div class="healthblock">
                                 <label for="system.stat.strength.value" class="statName minmaxtext rollable stat-roll"
                                        data-key="armor"
-                                       data-roll="1d20" data-label="MagicExhaustion">{{localize "Phoenix.Armor"}}</label>
+                                       data-roll="1d20" data-label="mentalExhaustion">{{localize "Phoenix.Armor"}}</label>
 
                                 <input class="minmax-input darkGreyText" type="text" name="system.stats.armor"
                                        value="{{system.stats.armor}}" data-dtype="Number"/>
@@ -183,6 +183,12 @@
 
         {{!-- Skills Tab --}}
         <div class="tab biography" data-group="primary" data-tab="skills">
+            <li class="item flexrow item-header">
+                <div class="item-controls">
+                    <a class="item-control skill-create" title="Create Item" data-type="item"><i
+                            class="fas fa-plus"></i> {{localize "Phoenix.AddSkill"}}</a>
+                </div>
+            </li>
             <div style="display: flex; justify-content: center">
                 <div class="horizontalFlex skills-tab" style="width: 800px; justify-content: center">
                     <ol class="items-list" style="width: 700px">
@@ -190,11 +196,10 @@
                             {{#if list}}
                                 <div class="headerinputtext" style="font-size: 2rem; margin-bottom: 3px">{{localize (concat "Phoenix." (tostat id))}}</div>
                                 {{#each list as |item id|}}
-                                    <div class="horizontalFlex" style="border: 2px black solid; margin: 1px; padding: 5px">
+                                    {{log item}}
+                                    <div class="horizontalFlex" style="border: 2px black solid; margin: 1px; padding-left: 5px; padding-right:5px">
                                         <li class="item skillrow" style="width: 300px" data-item-id="{{item.skill._id}}">
                                             <div class="horizontalFlex">
-                                                <div class="item-image"><img src="{{item.skill.img}}" title="{{item.skill.name}}" width="24"
-                                                                         height="24"/></div>
                                                 <h4 class="item-name">{{item.skill.name}} {{item.skill.system.value}}</h4>
                                             </div>
                                             <div class="item-controls">
@@ -207,8 +212,6 @@
                                         {{#each item.secondaries as |secondary id|}}
                                             <li class="item skillrow" style="width: 300px" data-item-id="{{secondary._id}}">
                                                 <div class="horizontalFlex">
-                                                    <div class="item-image"><img src="{{secondary.img}}" title="{{secondary.name}}" width="24"
-                                                                                 height="24"/></div>
                                                     <h4 class="item-name">{{secondary.name}}  {{secondary.system.value}}</h4>
                                                 </div>
                                                 <div class="item-controls">

@@ -116,6 +116,8 @@ export class PhoenixActorSheet extends ActorSheet {
                         })
                     }
                     for (let j = 0; j < skills[k].length; j++) {
+                        console.log(skills[k][j].skill.name)
+                        console.log(item.parentSkill)
                         if (skills[k][j].skill.name === item.parentSkill) {
                             skills[k][j].secondaries.push(i)
                             break skillattribution
@@ -203,6 +205,37 @@ export class PhoenixActorSheet extends ActorSheet {
                         icon: '<i class="fas fa-check"></i>',
                         label: "Create",
                         callback: (html) => this._onItemCreate(ev, html.find('[id=\"type\"]')[0].value)
+                    },
+                    cancel: {
+                        icon: '<i class="fas fa-times"></i>',
+                        label: "Cancel",
+                        callback: () => {
+                        }
+                    }
+                },
+                default: "roll",
+                close: () => {
+                }
+            });
+            t.render(true);
+        });
+
+        html.find('.skill-create').click(ev => {
+
+            let creatableItems = ['skill'];
+            let selectList = "";
+
+            creatableItems.forEach(type => selectList += "<option value='" + type + "'>" + type + "</option>")
+
+            //Select the stat of the roll.
+            let t = new Dialog({
+                title: "Select Stat",
+                content: "<h2> Item Name </h2> <input type='text' name='itemName' id='itemName' style='margin-bottom: 10px;'> <br/>",
+                buttons: {
+                    roll: {
+                        icon: '<i class="fas fa-check"></i>',
+                        label: "Create",
+                        callback: (html) => this._onItemCreate(ev, 'skill', html.find('[id="itemName"]')[0].value)
                     },
                     cancel: {
                         icon: '<i class="fas fa-times"></i>',
@@ -372,15 +405,13 @@ export class PhoenixActorSheet extends ActorSheet {
      * @param {Event} event   The originating click event
      * @private
      */
-    _onItemCreate(event, type) {
+    _onItemCreate(event, type, name = "New Item") {
         event.preventDefault();
         const header = event.currentTarget;
         // Get the type of item to create.
         //const type = header.dataset.type;
         // Grab any data associated with this control.
         const data = duplicate(header.dataset);
-        // Initialize a default name.
-        const name = `New ${type.capitalize()}`;
         // Prepare the item object.
         const itemData = {
             name: name,
