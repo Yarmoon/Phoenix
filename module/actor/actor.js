@@ -76,6 +76,10 @@ export class PhoenixActor extends Actor {
       "charisma": {
         "label": "Charisma",
         "dtype": "String"
+      },
+      "misc": {
+        "label": "Special",
+        "dtype": "String"
       }
     }
 

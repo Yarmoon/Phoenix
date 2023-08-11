@@ -79,6 +79,9 @@ Hooks.once('init', async function () {
         if (arguments[0] === 5){
             return "Charisma"
         }
+        if (arguments[0] === 6){
+            return "Special"
+        }
         console.log(arguments[0])
     });
 

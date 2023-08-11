@@ -9,7 +9,7 @@ export class PhoenixActorSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["phoenix", "sheet", "actor", "character"],
             template: "systems/phoenix/templates/actor/actor-sheet.html",
-            width: 800,
+            width: 711,
             height: 800,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "character"}]
         });
@@ -146,13 +146,13 @@ export class PhoenixActorSheet extends ActorSheet {
             if (item.sheet.rotation === undefined)
                 item.sheet.rotation = 0;
 
-            item.size.aspect = (item.sheet.rotation === -90 ? (item.size.width > item.size.height ? item.size.width / item.size.height : item.size.height / item.size.width) : 1);
+            item.size.aspect = (item.sheet.rotation === -90 ? (item.size.width > item.size.height ? item.size.width / item.size.height : item.size.height / item.size.width) : 0.8);
 
             item.sheet.curHeight = (item.sheet.rotation === -90 ? item.size.width : item.size.height);
             item.sheet.curWidth = (item.sheet.rotation === -90 ? item.size.height : item.size.width);
 
-            item.size.x = (item.sheet.curWidth * 8 + item.sheet.curWidth) + "em";
-            item.size.y = (item.sheet.curHeight * 8 + item.sheet.curHeight) + "em";
+            item.size.x = (item.sheet.curWidth * 6 + item.sheet.curWidth) + "em";
+            item.size.y = (item.sheet.curHeight * 6 + item.sheet.curHeight) + "em";
 
             let roundScale = 5;
             let xPos = Math.round(item.sheet.currentX / roundScale) * roundScale;
@@ -220,6 +220,7 @@ export class PhoenixActorSheet extends ActorSheet {
             t.render(true);
         });
 
+        // Add Skill
         html.find('.skill-create').click(ev => {
 
             let creatableItems = ['skill'];
