@@ -82,7 +82,6 @@ Hooks.once('init', async function () {
         if (arguments[0] === 6){
             return "Special"
         }
-        console.log(arguments[0])
     });
 
     Handlebars.registerHelper('toLowerCase', function (str) {

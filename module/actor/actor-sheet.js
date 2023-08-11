@@ -9,7 +9,7 @@ export class PhoenixActorSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["phoenix", "sheet", "actor", "character"],
             template: "systems/phoenix/templates/actor/actor-sheet.html",
-            width: 711,
+            width: 720,
             height: 800,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "character"}]
         });
@@ -116,8 +116,6 @@ export class PhoenixActorSheet extends ActorSheet {
                         })
                     }
                     for (let j = 0; j < skills[k].length; j++) {
-                        console.log(skills[k][j].skill.name)
-                        console.log(item.parentSkill)
                         if (skills[k][j].skill.name === item.parentSkill) {
                             skills[k][j].secondaries.push(i)
                             break skillattribution
@@ -146,7 +144,7 @@ export class PhoenixActorSheet extends ActorSheet {
             if (item.sheet.rotation === undefined)
                 item.sheet.rotation = 0;
 
-            item.size.aspect = (item.sheet.rotation === -90 ? (item.size.width > item.size.height ? item.size.width / item.size.height : item.size.height / item.size.width) : 0.8);
+            item.size.aspect = (item.sheet.rotation === -90 ? (item.size.width > item.size.height ? item.size.width / item.size.height : item.size.height / item.size.width) : 1);
 
             item.sheet.curHeight = (item.sheet.rotation === -90 ? item.size.width : item.size.height);
             item.sheet.curWidth = (item.sheet.rotation === -90 ? item.size.height : item.size.width);

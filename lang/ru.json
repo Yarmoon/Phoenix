@@ -37,6 +37,7 @@
   "Phoenix.Inventory" : "Инвентарь",
   "Phoenix.Notes" : "Записи",
   "Phoenix.Skills": "Навыки",
+  "Phoenix.Statuses": "Статусы",
   "Phoenix.Storage" : "Хранилище",
   "Phoenix.Options" : "Опции",
 
