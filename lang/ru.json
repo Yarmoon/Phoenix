@@ -37,6 +37,8 @@
   "Phoenix.Inventory" : "Инвентарь",
   "Phoenix.Notes" : "Записи",
   "Phoenix.Skills": "Навыки",
+  "Phoenix.Skill": "Навык",
+  "Phoenix.Roll": "Бросок",
   "Phoenix.Statuses": "Статусы",
   "Phoenix.Storage" : "Хранилище",
   "Phoenix.Options" : "Опции",
@@ -70,7 +72,6 @@
 
   "Phoenix.Cancel" : "Cancel",
 
-  "Phoenix.Roll" : "Roll",
   "Phoenix.RollDescription" : "Description",
   "Phoenix.RollSelectStat" : "Select Stat",
   "Phoenix.RollAdvantageDisadvantage" : "Advantage/Disadvantage",

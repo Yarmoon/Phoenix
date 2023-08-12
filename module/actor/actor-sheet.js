@@ -11,7 +11,8 @@ export class PhoenixActorSheet extends ActorSheet {
             template: "systems/phoenix/templates/actor/actor-sheet.html",
             width: 720,
             height: 800,
-            tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "character"}]
+            tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "character"},
+                {navSelector: ".skill-tabs", contentSelector: ".skill-body", initial: "skill"}]
         });
     }
 
@@ -51,19 +52,9 @@ export class PhoenixActorSheet extends ActorSheet {
      */
     _prepareCharacterItems(context) {
 
-        const actorData = context.actor;
-
         // Initialize containers.
         const gear = [];
-        const skills = [
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            []
-        ]
+        const skills = Array.from(Array(7), () => []);
         var dict = {
             strength: 0,
             dexterity: 1,
@@ -101,29 +92,21 @@ export class PhoenixActorSheet extends ActorSheet {
             // Skills handling
             if (i.type === "skill") {
                 if (i.system.parentSkill in dict) {
-                    skills[dict[i.system.parentSkill]].push({
+                    const parentSkillIndex = dict[i.system.parentSkill]
+                    skills[parentSkillIndex].push({
                         skill: i,
                         secondaries: []
                     })
+                    continue
                 }
 
-                skillattribution:
-                for (let k = 0; k < 7; k++) {
-                    if (k === 6 && ! (i.system.parentSkill in dict)) {
-                        skills[6].push({
-                            skill: i,
-                            secondaries: []
-                        })
-                    }
-                    for (let j = 0; j < skills[k].length; j++) {
-                        if (skills[k][j].skill.name === item.parentSkill) {
-                            skills[k][j].secondaries.push(i)
-                            break skillattribution
-                        }
-                    }
-                }
+                skills[6].push({
+                    skill: i,
+                    secondaries: []
+                })
                 continue
             }
+
             //End of skills handle
 
             // Now we'll set tags
@@ -166,6 +149,31 @@ export class PhoenixActorSheet extends ActorSheet {
             gear.push(i);
         }
         // Assign and return
+
+        let specialSkills = Array(0)
+
+        for (let i of skills[6]){
+            let foundParent = false
+            for (let k = 0; k < 6; k++){
+                for (let j = 0; j < skills[k].length; j++){
+                    if (skills[k][j].skill.name === i.skill.system.parentSkill){
+                        skills[k][j].secondaries.push(i.skill)
+                        foundParent = true
+                        console.log("Parent " + skills[k][j].skill.name + " found for " + i.skill.name)
+                        break
+                    }
+                }
+                if (foundParent){break}
+            }
+            if (!foundParent) {specialSkills.push(i)}
+        }
+        console.log("--------Skills--------")
+        console.log(skills[6])
+        console.log(skills)
+        console.log(specialSkills)
+        skills[6] = specialSkills
+
+        context.selected_skill = this.selected_skill
         context.gear = gear;
         context.skills = skills;
     }
@@ -275,6 +283,13 @@ export class PhoenixActorSheet extends ActorSheet {
             this.actor.updateEmbeddedDocuments('Item', [item]);
         });
 
+        // Display item info by clicking on name
+        html.find('.item-name').click(ev => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getEmbeddedDocument("Item", li.data("itemId"));
+            this.selected_skill = item.name;
+            this.render()
+        })
 
         // Rollable Attributes
         html.find('.stat-roll').click(ev => {

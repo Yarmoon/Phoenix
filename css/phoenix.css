@@ -307,6 +307,10 @@
     height: 100%;
 }
 
+.phoenix .roll-body {
+    height: 100%;
+}
+
 .phoenix .tab{
     height: 700px;
 }
@@ -326,7 +330,6 @@
 }
 
 .phoenix .tabs {
-    height: 40px;
     border-top: 2px solid rgb(56, 56, 56);
     border-bottom: 2px solid rgb(56, 56, 56);
 }
@@ -354,6 +357,13 @@
 
 .phoenix .items-list .item {
     line-height: 24px;
+}
+
+.phoenix .skill-grid {
+    display: grid;
+    grid-template-areas:
+            'add-item roll-window'
+            'skill-list roll-window';
 }
 
 .phoenix .skills-list .item {
@@ -403,7 +413,6 @@
 .phoenix .items-box {
     display: flex;
     flex-direction: row;
-    width: 50%;
     justify-content: space-between;
 }
 
@@ -414,6 +423,19 @@
     text-overflow: ellipsis; /* Show ellipsis (...) for overflow text */
     margin-right: 10px; /* Add some spacing between name and controls */
     font-size: 14px;
+}
+
+.phoenix .skill-description {
+    padding: 5px;
+}
+
+.phoenix .full-item-name {
+    font-family: 'Kanyon', sans-serif;
+    font-size: 1.8rem;
+    text-align: center;
+    margin: auto;
+    flex: 0.5;
+    font-kerning: auto;
 }
 
 .phoenix .items-list .skill-name {
@@ -454,7 +476,6 @@
 
 .phoenix .tab-select {
     font-size: medium;
-    font-weight: bold;
     font-family: 'Kanyon', sans-serif;
     font-size: 1.5em;
     color: #111;
@@ -560,7 +581,6 @@
     border: 0px solid rgb(77, 77, 77);
     color: rgb(77, 77, 77);
     font-size: 0.9rem;
-    font-weight: bold;
     text-align: center;
     font-family: 'Kanyon', sans-serif;
     background: transparent;
@@ -636,7 +656,6 @@
     margin: auto;
     border: 0px solid #111;
     font-size: 1.8rem;
-    font-weight: bold;
     text-align: center;
     font-family: 'Kanyon', sans-serif;
     background: transparent;
@@ -648,7 +667,6 @@
 .phoenix .minmaxtext{
     font-family: 'Kanyon', sans-serif;
     font-size: 1.8rem;
-    font-weight: bold;
     text-align: center;
     text-transform: uppercase;
     margin: auto;
@@ -659,7 +677,6 @@
 .phoenix .littleLabel{
     font-family: 'Kanyon', sans-serif;
     font-size: 1.3rem;
-    font-weight: bold;
     text-align: center;
     margin: auto;
     flex: 0.5;
@@ -911,7 +928,7 @@
     display: flex;
     align-items: center;
     grid-column: 1/-1;
-    font-weight: bold;
+    font-weight: 400;
     /* border: 2px solid #111; */
 }
 
@@ -919,7 +936,6 @@
     color: rgb(22, 22, 22);
     font-family: 'Kanyon', sans-serif;
     font-size: 1.3rem;
-    font-weight: bold;
     text-align: center;
     margin-top: 3px;
     flex: 1;
@@ -1423,7 +1439,6 @@
 
 .phoenix .tabs .item{
     font-family: 'Kanyon', sans-serif;
-    font-weight: bold;
     font-size: 1.5em;
     line-height: 28px;
     font-kerning: auto;
