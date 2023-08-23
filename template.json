@@ -20,7 +20,11 @@
         },
         "exhaustion": 0,
         "mentalExhaustion": 0,
-        "armor": 0
+        "armor": 0,
+        "evasion": {
+          "value": 0,
+          "max": 0
+        }
       }
     },
     "character": {

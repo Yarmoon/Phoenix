@@ -30,6 +30,7 @@
   "Phoenix.ParentSkill": "Общий Навык",
   "Phoenix.Exhaustion": "ИСТ",
   "Phoenix.MagicExhaustion": "М. ИСТ",
+  "Phoenix.Evsn": "УКЛ",
   "Phoenix.Armor": "Броня",
 
   "Phoenix.Max" : "Max",

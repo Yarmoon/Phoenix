@@ -21,7 +21,7 @@
                         </div>
                     </div>
 
-                    <div class="abilities">
+                    <div class="abilities" style="width: 340px">
                         <div class="horizontalFlex blockborder">
                             <!-- Strength -->
                             <div class="statblock">
@@ -119,8 +119,8 @@
 
                 <div class="maininfo">
 
-                    <div class="abilities">
-                        <div class="horizontalFlex blockborder">
+                    <div class="abilities horizontalFlex" style="width: 100%">
+                        <div class="horizontalFlex blockborder" style="width: 230px">
                             <!-- Exhaustion -->
                             <div class="statblock">
                                 <label for="system.stat.exhaustion" class="statName minmaxtext rollable stat-roll"
@@ -140,12 +140,28 @@
                                        value="{{system.stats.mentalExhaustion}}" data-dtype="Number"/>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="base-resources">
+                        <div class="horizontalFlex blockborder" style="width: 100px">
+                            <!-- Evasion -->
+                            <div class="healthblock">
+                                <label for="system.evasion.value" class="statName minmaxtext rollable stat-roll"
+                                       data-key="evasion"
+                                       data-roll="1d10" data-label="Health">{{localize "Phoenix.Evsn"}}</label>
+                                <div class="horizontalFlex">
+                                    <input class="minmax-input darkGreyText" style="height: 100%" type="text"
+                                           name="system.evasion.value"
+                                           value="{{system.evasion.value}}" data-dtype="Number"/>
+                                    <div class="darkGreyText" style="height: 100%; font-size: 24px" type="text">/</div>
+                                    <input class="minmax-input darkGreyText" style="height: 100%" type="text"
+                                           name="system.evasion.max"
+                                           value="{{system.evasion.max}}" data-dtype="Number"/>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="horizontalFlex blockborder">
                             <!-- Armor -->
-                            <div class="healthblock">
+                            <div class="healthblock" style="width: 86px">
                                 <label for="system.stat.strength.value" class="statName minmaxtext rollable stat-roll"
                                        data-key="armor"
                                        data-roll="1d20" data-label="mentalExhaustion">{{localize "Phoenix.Armor"}}</label>
@@ -200,7 +216,7 @@
                                     {{#each list as |item id|}}
                                         <li class="items-box" style="border: 2px black solid; margin: 1px; padding-left: 5px; padding-right:5px">
                                             <div class="item skillrow" style="width: 45%" data-item-id="{{item.skill._id}}">
-                                                <h4 class="item-name" style="margin-bottom: 0">{{item.skill.system.value}} {{item.skill.name}} </h4>
+                                                <h4 class="item-name roll-bonus" style="margin-bottom: 0">{{item.skill.system.value}} {{item.skill.name}} </h4>
                                                 <div class="item-controls">
                                                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                                                     <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -210,7 +226,7 @@
                                             <div class="verticalFlex" style="width: 45%">
                                             {{#each item.secondaries as |secondary id|}}
                                                 <div class="item skillrow" data-item-id="{{secondary._id}}">
-                                                    <h4 class="item-name" style="margin-bottom: 0">{{secondary.system.value}} {{secondary.name}}</h4>
+                                                    <h4 class="item-name roll-bonus" style="margin-bottom: 0">{{secondary.system.value}} {{secondary.name}}</h4>
                                                     <div class="item-controls">
                                                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                                                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -239,9 +255,10 @@
                     <section class="skill-body">
                         <div class="tab skill-description" data-group="skills" data-tab="skill">
                             <div class="full-item-name">{{selected_skill}}</div>
+                            <div class="item-description">{{selected_skill_description}}</div>
                         </div>
                         <div class="tab" data-group="skills" data-tab="roll">
-
+                            <button class="roll-activate">Activate</button>
                         </div>
                     </section>
                 </div>

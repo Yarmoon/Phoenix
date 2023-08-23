@@ -248,7 +248,6 @@
     grid-template-areas:
         'header portrait'
         'underheader portrait';
-    grid-gap: 10px;
     padding: 10px;
     grid-template-columns: 30em 14em;
     align-items: start;
@@ -404,7 +403,14 @@
     background: white;
 }
 
+.phoenix .roll-bonus {
+}
 
+.phoenix .roll-bonus .roll-activated {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
 
 .phoenix .items-list .item img {
     display: block;
@@ -423,6 +429,15 @@
     text-overflow: ellipsis; /* Show ellipsis (...) for overflow text */
     margin-right: 10px; /* Add some spacing between name and controls */
     font-size: 14px;
+}
+
+.phoenix .item-description {
+    text-align: left;
+    color: rgb(22, 22, 22);
+    margin: 5px;
+    font-weight: 800;
+    font-size: 0.9em;
+    font-family: "Roboto", sans-serif;
 }
 
 .phoenix .skill-description {
@@ -610,7 +625,6 @@
 }
 
 .phoenix .abilities{
-    width: 75%;
     margin: 5px;
 }
 
@@ -982,10 +996,10 @@
 }
 
 .phoenix .portrait {
-    width: 100%;
-    height: auto;
+    width: 222px;
+    height: 222px;
     border: 2px solid black;
-    margin: 5px
+    margin-top: 5px;
 }
 
 .phoenix .rollcontainer {

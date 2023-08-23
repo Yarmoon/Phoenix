@@ -159,7 +159,6 @@ export class PhoenixActorSheet extends ActorSheet {
                     if (skills[k][j].skill.name === i.skill.system.parentSkill){
                         skills[k][j].secondaries.push(i.skill)
                         foundParent = true
-                        console.log("Parent " + skills[k][j].skill.name + " found for " + i.skill.name)
                         break
                     }
                 }
@@ -167,13 +166,10 @@ export class PhoenixActorSheet extends ActorSheet {
             }
             if (!foundParent) {specialSkills.push(i)}
         }
-        console.log("--------Skills--------")
-        console.log(skills[6])
-        console.log(skills)
-        console.log(specialSkills)
         skills[6] = specialSkills
 
         context.selected_skill = this.selected_skill
+        context.selected_skill_description = this.selected_skill_description
         context.gear = gear;
         context.skills = skills;
     }
@@ -184,6 +180,22 @@ export class PhoenixActorSheet extends ActorSheet {
 
         // Everything below here is only needed if the sheet is editable
         if (!this.options.editable) return;
+
+        // Enter/exit roll mode
+        html.find('.roll-activate').click(ev => {
+            this.roll_mode = !this.roll_mode
+            console.log("Toggled roll mode " + this.roll_mode)
+            this.render()
+        })
+
+        if (this.roll_mode) {
+            // Add active class and make roll-bonus elements clickable
+            html.find('.roll-bonus').click(ev => {
+                const li = $(ev.currentTarget).parents(".item");
+                const item = this.actor.getEmbeddedDocument("Item", li.data("itemId"));
+                console.log(item)
+            })
+        }
 
         // Update Inventory Item
         html.find('.item-equip').click(ev => {
@@ -288,6 +300,12 @@ export class PhoenixActorSheet extends ActorSheet {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.getEmbeddedDocument("Item", li.data("itemId"));
             this.selected_skill = item.name;
+            if (typeof item.system.description !== 'undefined') {
+                this.selected_skill_description = stripHtmlTags(item.system.description);
+            }
+            else {
+                this.selected_skill_description = ""
+            }
             this.render()
         })
 
@@ -646,6 +664,8 @@ export class PhoenixActorSheet extends ActorSheet {
         // Create the owned item
         return this._onDropItemCreate(itemData);
     }
+}
 
-
+function stripHtmlTags(input) {
+    return input.replace(/<[^>]*>/g, '');
 }
