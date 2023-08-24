@@ -106,7 +106,7 @@ Hooks.on("preCreateActor", (document, createData, options, userId) => {
     mergeObject(createData,
         {
             "token.bar1": { "attribute": "health" },        // Default Bar 1 to Health
-            "token.bar2": { "stat": "strength" },      // Default Bar 2 to Insanity
+            "token.bar2": { "stat": "evasion" },      // Default Bar 2 to Evasion
             "token.displayName": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,     // Default display name to be on owner hover
             "token.displayBars": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,     // Default display bars to be on owner hover
             "token.disposition": disposition,                               // Default disposition to neutral
@@ -118,6 +118,16 @@ Hooks.on("preCreateActor", (document, createData, options, userId) => {
         createData.token.vision = true;
         createData.token.actorLink = true;
     }
+})
+
+Hooks.on('combatTurn', (combat, updateData, updateOptions) => {
+    console.log(combat.combatant.token)
+    combat.nextCombatant.actor.update({'system.evasion.value': combat.nextCombatant.actor.system.evasion.max})
+})
+
+Hooks.on('combatRound', (combat, updateData, updateOptions) => {
+    console.log(combat.combatant.token)
+    combat.nextCombatant.actor.update({'system.evasion.value': combat.nextCombatant.actor.system.evasion.max})
 })
 
 // async function preloadHandlebarsTemplates() {
