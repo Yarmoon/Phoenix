@@ -168,8 +168,6 @@ export class PhoenixActorSheet extends ActorSheet {
         }
         skills[6] = specialSkills
 
-        context.selected_skill = this.selected_skill
-        context.selected_skill_description = this.selected_skill_description
         context.gear = gear;
         context.skills = skills;
     }
@@ -186,13 +184,6 @@ export class PhoenixActorSheet extends ActorSheet {
             this.roll_mode = !this.roll_mode
             console.log("Toggled roll mode " + this.roll_mode)
             this.render()
-        })
-
-        // Add active class and make roll-bonus elements clickable
-        html.find('.statName').click(ev => {
-            const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getEmbeddedDocument("Item", li.data("itemId"));
-            console.log(item)
         })
 
         // Update Inventory Item
@@ -310,6 +301,8 @@ export class PhoenixActorSheet extends ActorSheet {
         html.find('.roll-modifier').click(ev => {
             const div = $(ev.currentTarget);
             div.toggleClass("roll-active")
+
+            manageListElement(html, div.attr("data-key"), 1, "--", div.hasClass("roll-active"))
         });
 
         // Rollable Attributes
@@ -671,4 +664,38 @@ export class PhoenixActorSheet extends ActorSheet {
 
 function stripHtmlTags(input) {
     return input.replace(/<[^>]*>/g, '');
+}
+
+function manageListElement(html, name, value, type, toggle) {
+    let skills_list = html.find('.chosen-skills')
+    console.log(skills_list)
+    if (toggle) {
+        // Add a new element to the list
+        var listItem = $('<li class="skillrow"></li>');
+        listItem.append('<h4 class="item-name name">' + name +'</h4>');
+        listItem.append('<h4 class="value">' + value + '</h4>');
+        listItem.append('<button class="delete-btn" style="width: 30px">X</button>');
+
+        // Add delete button functionality
+        listItem.find('.delete-btn').on('click', function() {
+            $(this).parent().remove();
+
+            // Find the first element with the specified classes and data-key attribute
+            var element = $('.roll-modifier.roll-active[data-key="' + name + '"]').first();
+
+            // Toggle the 'roll-active' class off
+            element.removeClass('roll-active');
+        });
+
+        $(html.find('.chosen-skills')).append(listItem);
+    } else {
+        // Remove the element with the given name
+        console.log("remove issued")
+        $(html.find('.chosen-skills')).find('li').each(function() {
+            if ($(this).find('.name').text() === name) {
+                $(this).remove();
+            }
+        });
+
+    }
 }
