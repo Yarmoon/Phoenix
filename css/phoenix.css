@@ -84,11 +84,9 @@
 
 
 .list-roll:hover,
-.list-roll:focus,
-.rollable:hover, .rollable:focus {
+.list-roll:focus {
     color: #000;
     text-shadow: 0 0 10px rgb(112, 112, 112);
-    cursor: pointer;
 }
 
 .grid,
@@ -403,15 +401,6 @@
     background: white;
 }
 
-.phoenix .roll-bonus {
-}
-
-.phoenix .roll-bonus .roll-activated {
-    background-color: black;
-    color: white;
-    cursor: pointer;
-}
-
 .phoenix .items-list .item img {
     display: block;
 }
@@ -429,6 +418,7 @@
     text-overflow: ellipsis; /* Show ellipsis (...) for overflow text */
     margin-right: 10px; /* Add some spacing between name and controls */
     font-size: 14px;
+    padding-left: 5px;
 }
 
 .phoenix .item-description {
@@ -483,10 +473,16 @@
 .phoenix .skillrow .item-controls {
     display: none; /* Initially hide controls */
     align-items: center;
+    padding-right: 5px;
 }
 
 .phoenix .skillrow:hover .item-controls {
     display: flex; /* Display controls on hover */
+    justify-content: space-between;
+}
+
+.phoenix .skillrow:hover .item-control {
+    width: 20px;
 }
 
 .phoenix .tab-select {
@@ -580,7 +576,6 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    width: 33%; /* You can adjust this value according to your needs */
 }
 
 .phoenix .healthblock{
@@ -686,6 +681,12 @@
     margin: auto;
     flex: 1;
     font-kerning: auto;
+    width: 100%;
+}
+
+.phoenix .roll-modifier:hover, .roll-active {
+    background-color:black;
+    color : #fdc14c;
 }
 
 .phoenix .littleLabel{

@@ -25,7 +25,7 @@
                         <div class="horizontalFlex blockborder">
                             <!-- Strength -->
                             <div class="statblock">
-                                <label for="system.stat.strength.value" class="statName minmaxtext rollable stat-roll"
+                                <label for="system.stat.strength.value" class="statName minmaxtext roll-modifier"
                                        data-key="strength"
                                        data-roll="1d20" data-label="Strength">{{localize "Phoenix.ActorStr"}}</label>
 
@@ -35,7 +35,7 @@
 
                             <!-- Dexterity -->
                             <div class="statblock">
-                                <label for="system.stat.dexterity.value" class="statName minmaxtext rollable stat-roll"
+                                <label for="system.stat.dexterity.value" class="statName minmaxtext roll-modifier"
                                        data-key="dexterity"
                                        data-roll="1d20" data-label="Dexterity">{{localize "Phoenix.ActorDex"}}</label>
 
@@ -46,7 +46,7 @@
                             <!-- Constitution -->
                             <div class="statblock">
                                 <label for="system.stat.constitution.value"
-                                       class="statName minmaxtext rollable stat-roll" data-key="constitution"
+                                       class="statName minmaxtext roll-modifier" data-key="constitution"
                                        data-roll="1d20" data-label="Constitution">{{localize
                                         "Phoenix.ActorCon"}}</label>
 
@@ -58,8 +58,8 @@
                             <!-- Intelligence -->
                             <div class="statblock">
                                 <label for="system.stat.intelligence.value"
-                                       class="statName minmaxtext rollable stat-roll" data-key="intelligence"
-                                       data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorInt"}}</label>
+                                       class="statName minmaxtext roll-modifier" data-key="intelligence"
+                                       data-roll="1d20" data-label="Intelligence">{{localize "Phoenix.ActorInt"}}</label>
 
                                 <input class="minmax-input darkGreyText" type="text"
                                        name="system.stats.intelligence.value"
@@ -68,9 +68,9 @@
 
                             <!-- Wisdom -->
                             <div class="statblock">
-                                <label for="system.stat.wisdom.value" class="statName minmaxtext rollable stat-roll"
+                                <label for="system.stat.wisdom.value" class="statName minmaxtext roll-modifier"
                                        data-key="wisdom"
-                                       data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorWis"}}</label>
+                                       data-roll="1d20" data-label="Wisdom">{{localize "Phoenix.ActorWis"}}</label>
 
                                 <input class="minmax-input darkGreyText" type="text" name="system.stats.wisdom.value"
                                        value="{{system.stats.wisdom.value}}" data-dtype="Number"/>
@@ -78,9 +78,9 @@
 
                             <!-- Charisma -->
                             <div class="statblock">
-                                <label for="system.stat.charisma.value" class="statName minmaxtext rollable stat-roll"
+                                <label for="system.stat.charisma.value" class="statName minmaxtext roll-modifier"
                                        data-key="charisma"
-                                       data-roll="1d20" data-label="Will">{{localize "Phoenix.ActorCha"}}</label>
+                                       data-roll="1d20" data-label="Charisma">{{localize "Phoenix.ActorCha"}}</label>
 
                                 <input class="minmax-input darkGreyText" type="text" name="system.stats.charisma.value"
                                        value="{{system.stats.charisma.value}}" data-dtype="Number"/>
@@ -92,7 +92,7 @@
                         <div class="horizontalFlex blockborder">
                             <!-- HP -->
                             <div class="healthblock">
-                                <label for="system.health.value" class="statName minmaxtext rollable stat-roll"
+                                <label for="system.health.value" class="statName minmaxtext"
                                        data-key="health"
                                        data-roll="1d10" data-label="Health">{{localize "Phoenix.ActorHP"}}</label>
                                 <div class="horizontalFlex">
@@ -123,7 +123,7 @@
                         <div class="horizontalFlex blockborder" style="width: 230px">
                             <!-- Exhaustion -->
                             <div class="statblock">
-                                <label for="system.stat.exhaustion" class="statName minmaxtext rollable stat-roll"
+                                <label for="system.stat.exhaustion" class="statName minmaxtext roll-modifier"
                                        data-key="exhaustion"
                                        data-roll="1d20" data-label="Exhaustion">{{localize "Phoenix.Exhaustion"}}</label>
 
@@ -132,7 +132,7 @@
                             </div>
 
                             <div class="statblock">
-                                <label for="system.stat.mentalExhaustion" class="statName minmaxtext rollable stat-roll"
+                                <label for="system.stat.mentalExhaustion" class="statName minmaxtext roll-modifier"
                                        data-key="mentalExhaustion"
                                        data-roll="1d20" data-label="mentalExhaustion">{{localize "Phoenix.MagicExhaustion"}}</label>
 
@@ -144,7 +144,7 @@
                         <div class="horizontalFlex blockborder" style="width: 100px">
                             <!-- Evasion -->
                             <div class="healthblock">
-                                <label for="system.evasion.value" class="statName minmaxtext rollable stat-roll"
+                                <label for="system.evasion.value" class="statName minmaxtext"
                                        data-key="evasion"
                                        data-roll="1d10" data-label="Health">{{localize "Phoenix.Evsn"}}</label>
                                 <div class="horizontalFlex">
@@ -162,7 +162,7 @@
                         <div class="horizontalFlex blockborder">
                             <!-- Armor -->
                             <div class="healthblock" style="width: 86px">
-                                <label for="system.stat.strength.value" class="statName minmaxtext rollable stat-roll"
+                                <label for="system.stat.strength.value" class="statName minmaxtext"
                                        data-key="armor"
                                        data-roll="1d20" data-label="mentalExhaustion">{{localize "Phoenix.Armor"}}</label>
 
@@ -214,19 +214,19 @@
                                 {{#if list}}
                                     <div class="headerinputtext" style="font-size: 2rem; margin-bottom: 3px">{{localize (concat "Phoenix." (tostat id))}}</div>
                                     {{#each list as |item id|}}
-                                        <li class="items-box" style="border: 2px black solid; margin: 1px; padding-left: 5px; padding-right:5px">
-                                            <div class="item skillrow" style="width: 45%" data-item-id="{{item.skill._id}}">
-                                                <h4 class="item-name roll-bonus" style="margin-bottom: 0">{{item.skill.system.value}} {{item.skill.name}} </h4>
+                                        <li class="items-box" style="border: 2px black solid; margin: 1px">
+                                            <div class="item skillrow roll-modifier" style="width: 50%" data-item-id="{{item.skill._id}}">
+                                                <h4 class="item-name" style="margin-bottom: 0">{{item.skill.system.value}} {{item.skill.name}} </h4>
                                                 <div class="item-controls">
                                                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                                                     <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                                                 </div>
                                             </div>
                                         {{#if item.secondaries}}
-                                            <div class="verticalFlex" style="width: 45%">
+                                            <div class="verticalFlex" style="width: 50%">
                                             {{#each item.secondaries as |secondary id|}}
-                                                <div class="item skillrow" data-item-id="{{secondary._id}}">
-                                                    <h4 class="item-name roll-bonus" style="margin-bottom: 0">{{secondary.system.value}} {{secondary.name}}</h4>
+                                                <div class="item skillrow roll-modifier" data-item-id="{{secondary._id}}">
+                                                    <h4 class="item-name" style="margin-bottom: 0">{{secondary.system.value}} {{secondary.name}}</h4>
                                                     <div class="item-controls">
                                                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                                                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -254,11 +254,10 @@
 
                     <section class="skill-body">
                         <div class="tab skill-description" data-group="skills" data-tab="skill">
-                            <div class="full-item-name">{{selected_skill}}</div>
+                            <div class="full-item-name"></div>
                             <div class="item-description">{{selected_skill_description}}</div>
                         </div>
                         <div class="tab" data-group="skills" data-tab="roll">
-                            <button class="roll-activate">Activate</button>
                         </div>
                     </section>
                 </div>

@@ -188,14 +188,12 @@ export class PhoenixActorSheet extends ActorSheet {
             this.render()
         })
 
-        if (this.roll_mode) {
-            // Add active class and make roll-bonus elements clickable
-            html.find('.roll-bonus').click(ev => {
-                const li = $(ev.currentTarget).parents(".item");
-                const item = this.actor.getEmbeddedDocument("Item", li.data("itemId"));
-                console.log(item)
-            })
-        }
+        // Add active class and make roll-bonus elements clickable
+        html.find('.statName').click(ev => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getEmbeddedDocument("Item", li.data("itemId"));
+            console.log(item)
+        })
 
         // Update Inventory Item
         html.find('.item-equip').click(ev => {
@@ -299,15 +297,20 @@ export class PhoenixActorSheet extends ActorSheet {
         html.find('.item-name').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.getEmbeddedDocument("Item", li.data("itemId"));
-            this.selected_skill = item.name;
+            html.find('.full-item-name').text(item.name)
             if (typeof item.system.description !== 'undefined') {
-                this.selected_skill_description = stripHtmlTags(item.system.description);
+                html.find('.item-description').text(stripHtmlTags(item.system.description));
             }
             else {
-                this.selected_skill_description = ""
+                html.find('.item-description').text("");
             }
-            this.render()
         })
+
+        // Rollable Attributes
+        html.find('.roll-modifier').click(ev => {
+            const div = $(ev.currentTarget);
+            div.toggleClass("roll-active")
+        });
 
         // Rollable Attributes
         html.find('.stat-roll').click(ev => {
