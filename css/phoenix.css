@@ -5,7 +5,7 @@
 @font-face {
     font-family: 'Kanyon';
     src: url('Kanyon-Regular.eot'); /* IE9 Compat Modes */
-    url('Kanyon-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+    src: url('Kanyon-Regular.woff') format('woff'), /* Pretty Modern Browsers */
     url('Kanyon-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
     url('Kanyon-Regular.svg') format('svg'); /* Legacy iOS */
 }

@@ -70,8 +70,10 @@
 
   "Phoenix.SkillName": "Навык",
   "Phoenix.AddSkill" : "Добавить навык",
+  "Phoenix.SkillCreation": "Создание навыка",
 
-  "Phoenix.Cancel" : "Cancel",
+  "Phoenix.Cancel" : "Отмена",
+  "Phoenix.Create": "Создать",
 
   "Phoenix.RollDescription" : "Description",
   "Phoenix.RollSelectStat" : "Select Stat",

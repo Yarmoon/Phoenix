@@ -248,17 +248,17 @@ export class PhoenixActorSheet extends ActorSheet {
 
             //Select the stat of the roll.
             let t = new Dialog({
-                title: "Select Stat",
-                content: "<h2> Item Name </h2> <input type='text' name='itemName' id='itemName' style='margin-bottom: 10px;'> <br/>",
+                title: game.i18n.localize("Phoenix.SkillCreation"),
+                content: `<h2> ${game.i18n.localize("Phoenix.SkillName")} </h2> <input type='text' name='itemName' id='itemName' style='margin-bottom: 10px;'> <br/>`,
                 buttons: {
                     roll: {
                         icon: '<i class="fas fa-check"></i>',
-                        label: "Create",
+                        label: `${game.i18n.localize("Phoenix.Create")}`,
                         callback: (html) => this._onItemCreate(ev, 'skill', html.find('[id="itemName"]')[0].value)
                     },
                     cancel: {
                         icon: '<i class="fas fa-times"></i>',
-                        label: "Cancel",
+                        label: `${game.i18n.localize("Phoenix.Cancel")}`,
                         callback: () => {
                         }
                     }
