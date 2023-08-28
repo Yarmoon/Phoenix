@@ -302,15 +302,23 @@ export class PhoenixActorSheet extends ActorSheet {
             const div = $(ev.currentTarget);
             div.toggleClass("roll-active")
 
-            manageListElement(html, div.attr("data-key"), 1, "--", div.hasClass("roll-active"))
+            manageListElement(html,
+                div.attr("data-key"),
+                div.attr("data-value"),
+                div.attr("data-mod-type"),
+                div.hasClass("roll-active"))
         });
 
-        // Rollable Attributes
-        html.find('.stat-roll').click(ev => {
-            const div = $(ev.currentTarget);
-            const statName = div.data("key");
-            const attribute = this.actor.system.stats[statName];
-            this.actor.rollStat(attribute);
+        const numberInput = $("#numberInput");
+
+        $("#decrease").click(function() {
+            const currentValue = parseInt(numberInput.val());
+            numberInput.val(currentValue - 1);
+        });
+
+        $("#increase").click(function() {
+            const currentValue = parseInt(numberInput.val());
+            numberInput.val(currentValue + 1);
         });
 
         // Rollable Item/Anything with a description that we want to click on.
@@ -667,13 +675,19 @@ function stripHtmlTags(input) {
 }
 
 function manageListElement(html, name, value, type, toggle) {
-    let skills_list = html.find('.chosen-skills')
-    console.log(skills_list)
+    let mod_value = value
+    if (type === "secondary") {
+        mod_value *= 2
+    }
+    else if (type === "exhaustion") {
+        mod_value = -Math.floor(value/5)
+    }
+
     if (toggle) {
         // Add a new element to the list
         var listItem = $('<li class="skillrow"></li>');
-        listItem.append('<h4 class="item-name name">' + name +'</h4>');
-        listItem.append('<h4 class="value">' + value + '</h4>');
+        listItem.append('<h4 class="item-name name" style="margin: 0 0 0 0">' + name +'</h4>');
+        listItem.append('<h4 class="value" style="margin: 0 0 0 0; width: 20px">' + mod_value + '</h4>');
         listItem.append('<button class="delete-btn" style="width: 30px">X</button>');
 
         // Add delete button functionality

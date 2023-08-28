@@ -227,14 +227,6 @@ export class PhoenixStorageSheet extends ActorSheet {
             this.actor.updateEmbeddedDocuments('Item', [item]);
         });
 
-        // Rollable Attributes
-        html.find('.stat-roll').click(ev => {
-            const div = $(ev.currentTarget);
-            const statName = div.data("key");
-            const attribute = this.actor.system.stats[statName];
-            this.actor.rollStat(attribute);
-        });
-
         // Rollable Item/Anything with a description that we want to click on.
         html.find('.item-roll').click(ev => {
             const li = ev.currentTarget.closest(".item");

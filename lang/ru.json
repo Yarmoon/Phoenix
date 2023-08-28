@@ -28,8 +28,10 @@
   "Special": "Специальные",
   "Phoenix.SkillLevel": "Уровень",
   "Phoenix.ParentSkill": "Общий Навык",
-  "Phoenix.Exhaustion": "ИСТ",
-  "Phoenix.MagicExhaustion": "М. ИСТ",
+  "Phoenix.Exhaustion": "Истощение",
+  "Phoenix.Exhst": "ИСТ",
+  "Phoenix.MagicExhaustion": "Ментальное истощение",
+  "Phoenix.MExhst": "М. ИСТ",
   "Phoenix.Evsn": "УКЛ",
   "Phoenix.Armor": "Броня",
 

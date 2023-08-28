@@ -6,6 +6,7 @@
     ],
     "templates": {
       "base": {
+        "roll-mod": 0,
         "health": {
           "value": 0,
           "min": 0,
