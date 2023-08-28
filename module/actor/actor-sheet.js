@@ -182,7 +182,6 @@ export class PhoenixActorSheet extends ActorSheet {
         // Enter/exit roll mode
         html.find('.roll-activate').click(ev => {
             this.roll_mode = !this.roll_mode
-            console.log("Toggled roll mode " + this.roll_mode)
             this.render()
         })
 
@@ -309,8 +308,17 @@ export class PhoenixActorSheet extends ActorSheet {
                 div.hasClass("roll-active"))
         });
 
-        const numberInput = $("#numberInput");
+        // Select dice to roll
+        html.find('.dice-icon').click(ev => {
+            $('.dice-icon').css('background-color', '').removeClass("active");
+            $('.dice-icon svg').css('fill', '');
 
+            $(ev.currentTarget).css('background-color', 'black').addClass("active");
+            $(ev.currentTarget).find('svg').css('fill', 'white');
+        });
+
+        const numberInput = $("#numberInput");
+        // Increase/decrease roll modifier
         $("#decrease").click(function() {
             const currentValue = parseInt(numberInput.val());
             numberInput.val(currentValue - 1);
@@ -320,6 +328,80 @@ export class PhoenixActorSheet extends ActorSheet {
             const currentValue = parseInt(numberInput.val());
             numberInput.val(currentValue + 1);
         });
+
+        // Toggle advantage/disadvantage buttons
+        html.find('.advantage-button').click(ev => {
+            $(ev.currentTarget).toggleClass("active")
+            if ($(ev.currentTarget).hasClass("active")) {
+                html.find('.disadvantage-button').removeClass("active")
+            }
+        })
+
+        html.find('.disadvantage-button').click(ev => {
+            $(ev.currentTarget).toggleClass("active")
+            if ($(ev.currentTarget).hasClass("active")) {
+                html.find('.advantage-button').removeClass("active")
+            }
+        })
+
+        html.find('.xp-control').click(ev => {
+            $(ev.currentTarget).toggleClass("active")
+        })
+
+
+        html.find('.roll-button').click(async ev =>{
+            let sum = 0;
+
+            $(".roll-mod").each(function() {
+                var value = parseInt($(this).text());
+                if (!isNaN(value)) {
+                    sum += value;
+                }
+            });
+
+            sum += numberInput.val()
+
+            let advantage = ""
+            let number = "2"
+
+            if (html.find('.advantage-button').hasClass('active')){
+                advantage = "kh"
+            } else if (html.find('.disadvantage-button').hasClass('active')){
+                advantage = "kl"
+            }
+            else {
+                number = "1"
+            }
+
+            let dice = html.find('.dice-icon.active').attr("data-dice")
+
+            if (!dice){
+                dice = "d20"
+            }
+
+            let roll = new Roll(number + dice + advantage + " + " + sum, this.actor)
+            roll.toMessage({speaker: ChatMessage.getSpeaker({actor: this.actor})})
+
+            if (html.find('.xp-control').hasClass("active")){
+                let xproll = new Roll("1d100 + " + this.actor.system.stats.intelligence.value)
+                await xproll.toMessage({speaker: ChatMessage.getSpeaker({actor: this.actor})})
+
+                if (xproll.total >= 90) {
+                    AudioHelper.play({src: "modules/experience-roll/sounds/xpsound.mp3", volume: 0.3, autoplay: true, loop: false}, true);
+
+
+                    let data = {
+                        content: this.actor.name + " успешно бросил опытник! Результат броска: " + xproll.result,
+                        user: game.user,
+                        speaker: ChatMessage.getSpeaker({actor: this.actor})
+                    }
+
+                    ChatMessage.create(data)
+                }
+
+
+            }
+        })
 
         // Rollable Item/Anything with a description that we want to click on.
         html.find('.item-roll').click(ev => {
@@ -687,8 +769,8 @@ function manageListElement(html, name, value, type, toggle) {
         // Add a new element to the list
         var listItem = $('<li class="skillrow"></li>');
         listItem.append('<h4 class="item-name name" style="margin: 0 0 0 0">' + name +'</h4>');
-        listItem.append('<h4 class="value" style="margin: 0 0 0 0; width: 20px">' + mod_value + '</h4>');
-        listItem.append('<button class="delete-btn" style="width: 30px">X</button>');
+        listItem.append('<h4 class="roll-mod" style="margin: 0 0 0 0; width: 20px; text-align: center">' + mod_value + '</h4>');
+        listItem.append('<div class="delete-btn" style="width: 20px; background: black; color: white; border-radius: 5px; text-align: center">X</div>');
 
         // Add delete button functionality
         listItem.find('.delete-btn').on('click', function() {
@@ -704,7 +786,6 @@ function manageListElement(html, name, value, type, toggle) {
         $(html.find('.chosen-skills')).append(listItem);
     } else {
         // Remove the element with the given name
-        console.log("remove issued")
         $(html.find('.chosen-skills')).find('li').each(function() {
             if ($(this).find('.name').text() === name) {
                 $(this).remove();

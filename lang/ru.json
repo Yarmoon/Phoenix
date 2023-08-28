@@ -79,9 +79,11 @@
 
   "Phoenix.RollDescription" : "Description",
   "Phoenix.RollSelectStat" : "Select Stat",
+  "Phoenix.RollAdv": "Преим.",
+  "Phoenix.RollDis": "Помеха",
   "Phoenix.RollAdvantageDisadvantage" : "Advantage/Disadvantage",
-  "Phoenix.RollAdvantage" : "Advantage",
-  "Phoenix.RollDisadvantage" : "Disadvantage",
+  "Phoenix.RollAdvantage" : "Преимущество",
+  "Phoenix.RollDisadvantage" : "Помеха",
   "Phoenix.RollNone" : "None",
   "Phoenix.RollSuccess" : "Success",
   "Phoenix.RollFailure" : "Failure",

@@ -689,6 +689,17 @@
     color : #ffffff;
 }
 
+.phoenix .advantage-button.active, .disadvantage-button.active, .xp-control.active{
+    background-color:black;
+    color : #ffffff;
+}
+
+.phoenix .dice-icon {
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+}
+
 .phoenix .littleLabel{
     font-family: 'Kanyon', sans-serif;
     font-size: 1.3rem;
