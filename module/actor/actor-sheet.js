@@ -359,8 +359,6 @@ export class PhoenixActorSheet extends ActorSheet {
                 }
             });
 
-            sum += numberInput.val()
-
             let advantage = ""
             let number = "2"
 
@@ -379,7 +377,7 @@ export class PhoenixActorSheet extends ActorSheet {
                 dice = "d20"
             }
 
-            let roll = new Roll(number + dice + advantage + " + " + sum, this.actor)
+            let roll = new Roll(number + dice + advantage + " + " + sum + "+" + numberInput.val(), this.actor)
             roll.toMessage({speaker: ChatMessage.getSpeaker({actor: this.actor})})
 
             if (html.find('.xp-control').hasClass("active")){
