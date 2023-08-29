@@ -3,7 +3,8 @@
   "description": "The unofficial phoenix system for FoundryVTT.",
   "version": "0.0.10",
   "esmodules": [
-    "module/phoenix.js"
+    "module/phoenix.js",
+    "module/roll-tab.js"
   ],
   "styles": [
     "css/phoenix.css"
