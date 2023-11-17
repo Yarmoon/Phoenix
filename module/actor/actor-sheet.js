@@ -2,6 +2,8 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
+import {manageListElement} from "../roll-tab.js";
+
 export class PhoenixActorSheet extends ActorSheet {
 
     /** @override */
@@ -40,6 +42,8 @@ export class PhoenixActorSheet extends ActorSheet {
             context.data.system.settings = {};
         }
 
+        Hooks.call('actorUpdated', context)
+
         return context;
     }
 
@@ -64,6 +68,7 @@ export class PhoenixActorSheet extends ActorSheet {
             charisma: 5,
             misc: 6
         }
+        let specialSkills = Array(0)
 
         // Iterate through items, allocating to containers
         // let totalWeight = 0;
@@ -149,8 +154,6 @@ export class PhoenixActorSheet extends ActorSheet {
             gear.push(i);
         }
         // Assign and return
-
-        let specialSkills = Array(0)
 
         for (let i of skills[6]){
             let foundParent = false
@@ -344,11 +347,12 @@ export class PhoenixActorSheet extends ActorSheet {
             }
         })
 
+        // Add/remove XP roll
         html.find('.xp-control').click(ev => {
             $(ev.currentTarget).toggleClass("active")
         })
 
-
+        // Roll with given modifiers
         html.find('.roll-button').click(async ev =>{
             let sum = 0;
 
@@ -752,43 +756,4 @@ export class PhoenixActorSheet extends ActorSheet {
 
 function stripHtmlTags(input) {
     return input.replace(/<[^>]*>/g, '');
-}
-
-function manageListElement(html, name, value, type, toggle) {
-    let mod_value = value
-    if (type === "secondary") {
-        mod_value *= 2
-    }
-    else if (type === "exhaustion") {
-        mod_value = -Math.floor(value/5)
-    }
-
-    if (toggle) {
-        // Add a new element to the list
-        var listItem = $('<li class="skillrow"></li>');
-        listItem.append('<h4 class="item-name name" style="margin: 0 0 0 0">' + name +'</h4>');
-        listItem.append('<h4 class="roll-mod" style="margin: 0 0 0 0; width: 20px; text-align: center">' + mod_value + '</h4>');
-        listItem.append('<div class="delete-btn" style="width: 20px; background: black; color: white; border-radius: 5px; text-align: center">X</div>');
-
-        // Add delete button functionality
-        listItem.find('.delete-btn').on('click', function() {
-            $(this).parent().remove();
-
-            // Find the first element with the specified classes and data-key attribute
-            var element = $('.roll-modifier.roll-active[data-key="' + name + '"]').first();
-
-            // Toggle the 'roll-active' class off
-            element.removeClass('roll-active');
-        });
-
-        $(html.find('.chosen-skills')).append(listItem);
-    } else {
-        // Remove the element with the given name
-        $(html.find('.chosen-skills')).find('li').each(function() {
-            if ($(this).find('.name').text() === name) {
-                $(this).remove();
-            }
-        });
-
-    }
 }

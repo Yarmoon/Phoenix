@@ -121,12 +121,10 @@ Hooks.on("preCreateActor", (document, createData, options, userId) => {
 })
 
 Hooks.on('combatTurn', (combat, updateData, updateOptions) => {
-    console.log(combat.combatant.token)
     combat.nextCombatant.actor.update({'system.evasion.value': combat.nextCombatant.actor.system.evasion.max})
 })
 
 Hooks.on('combatRound', (combat, updateData, updateOptions) => {
-    console.log(combat.combatant.token)
     combat.nextCombatant.actor.update({'system.evasion.value': combat.nextCombatant.actor.system.evasion.max})
 })
 

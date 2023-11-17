@@ -145,7 +145,6 @@ export class PhoenixStorageSheet extends ActorSheet {
 
         // Assign and return
         sheetData.actor.gear = gear;
-        console.log(gear);
 
     }
 

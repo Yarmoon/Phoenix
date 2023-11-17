@@ -1,44 +1,51 @@
-// Hook into the sidebar rendering
-Hooks.on("renderSidebar", (_app, html) => {
-    // Calculate new tab width
-    html[0]
-        .querySelector("#sidebar-tabs")
-        .style.setProperty(
-        "--sidebar-tab-width",
-        `${Math.floor(
-            parseInt(getComputedStyle(html[0]).getPropertyValue("--sidebar-width")) /
-            (document.querySelector("#sidebar-tabs").childElementCount + 1)
-        )}px`
-    );
+import {PhoenixSidebar} from "./ui/PhoenixSidebar.js";
 
-    // Create Macro tab
-    createTab(html);
-});
+Hooks.on('init', () => {
+    CONFIG.ui.sidebar = PhoenixSidebar;
 
-const createTab = async (html) => {
-    // Create Roll tab
-    const tab = document.createElement("a");
-    tab.classList.add("item");
-    tab.dataset.tab = "roll";
-    tab.dataset.tooltip = "DOCUMENT.Roll";
+    CONFIG.sidebarRoll = {
+            documentClass: ChatLog,
+            template: "systems/phoenix/templates/ui/sidebar-roll.html",
+            sidebarIcon: "fas fa-dice-d20",
+            batchSize: 100
+    }
+})
 
-    // Add a title if tooltips don't exist
-    if (!("tooltip" in game)) tab.title = game.i18n.localize("Roll");
+export function manageListElement(html, name, value, type, toggle) {
+    let mod_value = value
+    if (type === "secondary") {
+        mod_value *= 2
+    }
+    else if (type === "exhaustion") {
+        mod_value = -Math.floor(value/5)
+    }
 
-    // Add icon for tab
-    const icon = document.createElement("i");
-    icon.setAttribute("class", CONFIG.Macro.sidebarIcon);
-    tab.append(icon);
+    if (toggle) {
+        // Add a new element to the list
+        var listItem = $('<li class="skillrow"></li>');
+        listItem.append('<h4 class="item-name name" style="margin: 0 0 0 0">' + name +'</h4>');
+        listItem.append('<h4 class="roll-mod" style="margin: 0 0 0 0; width: 20px; text-align: center">' + mod_value + '</h4>');
+        listItem.append('<div class="delete-btn" style="width: 20px; background: var(--apsj-orange-dark); color: var(--color-text-light-highlight); border-radius: 5px; text-align: center">X</div>');
 
-    // Add Roll tab to sidebar before chat if it's not already there
-    if (!document.querySelector("#sidebar-tabs > [data-tab='roll']"))
-        document.querySelector("#sidebar-tabs > [data-tab='chat']").before(tab);
+        // Add delete button functionality
+        listItem.find('.delete-btn').on('click', function() {
+            $(this).parent().remove();
 
-    let sidebar = html.find('#sidebar-tabs');
-    const template = 'systems/phoenix/templates/actor/actor-sidebar.html';
-    const options = {}
+            // Find the first element with the specified classes and data-key attribute
+            var element = $('.roll-modifier.roll-active[data-key="' + name + '"]').first();
 
-    let $content = await renderTemplate(template, options)
+            // Toggle the 'roll-active' class off
+            element.removeClass('roll-active');
+        });
 
-    $(sidebar).after($content)
-};
+        $(html.find('.chosen-skills')).append(listItem);
+    } else {
+        // Remove the element with the given name
+        $(html.find('.chosen-skills')).find('li').each(function() {
+            if ($(this).find('.name').text() === name) {
+                $(this).remove();
+            }
+        });
+
+    }
+}

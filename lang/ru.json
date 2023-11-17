@@ -30,8 +30,8 @@
   "Phoenix.ParentSkill": "Общий Навык",
   "Phoenix.Exhaustion": "Истощение",
   "Phoenix.Exhst": "ИСТ",
-  "Phoenix.MagicExhaustion": "Ментальное истощение",
-  "Phoenix.MExhst": "М. ИСТ",
+  "Phoenix.MagicExhaustion": "Стресс",
+  "Phoenix.MExhst": "СТРЕСС",
   "Phoenix.Evsn": "УКЛ",
   "Phoenix.Armor": "Броня",
 
@@ -78,6 +78,7 @@
   "Phoenix.Create": "Создать",
 
   "Phoenix.RollDescription" : "Description",
+  "Phoenix.PreviousRoll": "Результат броска:",
   "Phoenix.RollSelectStat" : "Select Stat",
   "Phoenix.RollAdv": "Преим.",
   "Phoenix.RollDis": "Помеха",
