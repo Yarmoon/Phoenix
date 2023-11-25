@@ -19,16 +19,6 @@ Hooks.once('init', async function () {
 
     registerSettings();
 
-
-    /**
-     * Set an initiative formula for the system
-     * @type {String}
-     */
-    CONFIG.Combat.initiative = {
-        formula: "1d20",
-        decimals: 2
-    };
-
     // Define custom Entity classes
     CONFIG.Actor.documentClass = PhoenixActor;
     CONFIG.Item.documentClass = PhoenixItem;
@@ -38,7 +28,7 @@ Hooks.once('init', async function () {
     Actors.unregisterSheet("core", ActorSheet);
 
     Actors.registerSheet("phoenix", PhoenixActorSheet, {
-        types: ['character'],
+        types: ['character', 'npc'],
         makeDefault: true
     });
     Actors.registerSheet("phoenix", PhoenixStorageSheet, {
@@ -49,7 +39,6 @@ Hooks.once('init', async function () {
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("phoenix", PhoenixItemSheet, { makeDefault: true });
 
-    // If you need to add Handlebars helpers, here are a few useful examples:
     Handlebars.registerHelper('concat', function () {
         let outStr = '';
         for (let arg in arguments) {
@@ -99,34 +88,35 @@ Hooks.once('init', async function () {
 /**
  * Set default values for new actors' tokens
  */
-Hooks.on("preCreateActor", (document, createData, options, userId) => {
-    let disposition = CONST.TOKEN_DISPOSITIONS.NEUTRAL;
-
+Hooks.on("preCreateActor", (actor, data, options, userId) => {
     // Set wounds, advantage, and display name visibility
-    mergeObject(createData,
-        {
-            "token.bar1": { "attribute": "health" },        // Default Bar 1 to Health
-            "token.bar2": { "stat": "evasion" },      // Default Bar 2 to Evasion
-            "token.displayName": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,     // Default display name to be on owner hover
-            "token.displayBars": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,     // Default display bars to be on owner hover
-            "token.disposition": disposition,                               // Default disposition to neutral
-            "token.name": createData.name                                   // Set token name to actor name
+    mergeObject(data, {
+        "prototypeToken.bar1": { "attribute": "health" },        // Default Bar 1 to Health
+        "prototypeToken.bar2": { "stat": "evasion" },            // Default Bar 2 to Evasion
+        "prototypeToken.displayName": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,     // Default display name to be on owner hover
+        "prototypeToken.displayBars": CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,     // Default display bars to be on owner hover
+        "prototypeToken.disposition": CONST.TOKEN_DISPOSITIONS.NEUTRAL,                               // Default disposition to neutral
+        "prototypeToken.name": data.name                                   // Set token name to actor name
+    });
+
+    if (data.type === "character") {
+        mergeObject(data, {
+            "prototypeToken.sight.enabled": true,
+            "prototypeToken.actorLink": true
+        });
+    } else if (data.type === "npc") {
+        mergeObject(data, {
+            "prototypeToken.sight.enabled": true,
+            "prototypeToken.sight.range": 100
         })
-
-
-    if (createData.type == "character") {
-        createData.token.vision = true;
-        createData.token.actorLink = true;
     }
-})
 
-Hooks.on('combatTurn', (combat, updateData, updateOptions) => {
-    combat.nextCombatant.actor.update({'system.evasion.value': combat.nextCombatant.actor.system.evasion.max})
-})
+    console.log(data)
 
-Hooks.on('combatRound', (combat, updateData, updateOptions) => {
-    combat.nextCombatant.actor.update({'system.evasion.value': combat.nextCombatant.actor.system.evasion.max})
-})
+    actor.updateSource(data)
+
+    console.log("Final createData before actor creation:", data);
+});
 
 // async function preloadHandlebarsTemplates() {
 //   const templatePaths = [

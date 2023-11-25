@@ -7,11 +7,9 @@ export class PhoenixSidebar extends Sidebar {
             id: "sidebar",
             template: "templates/sidebar/sidebar.html",
             popOut: false,
-            width: 350,
-            tabs: [{navSelector: ".tabs", contentSelector: "#sidebar", initial: "chat"}]
+            tabs: [{navSelector: ".tabs", contentSelector: "#sidebar", initial: "sidebarRoll"}]
         });
     }
-
 
     getData(options={}) {
         const isGM = game.user.isGM;
@@ -108,6 +106,21 @@ class SidebarRoll extends SidebarTab {
     constructor(actor) {
         super();
         this.actor = actor
+
+        Hooks.on('controlToken', (object, controlled) => {
+            if (!controlled) return;
+
+            this.actor = game.actors.get(object.document.actorId)
+            this.render()
+        })
+
+        Hooks.on('actorUpdated', (data) => {
+            if (!this.actor) return;
+
+            if (data.actor.uuid === this.actor.uuid) {
+                this.render()
+            }
+        })
     }
 
     static get defaultOptions() {
@@ -122,7 +135,7 @@ class SidebarRoll extends SidebarTab {
         if (!this.actor) return;
 
         const skills = Array.from(Array(7), () => []);
-        var dict = {
+        let dict = {
             strength: 0,
             dexterity: 1,
             constitution: 2,
@@ -155,7 +168,7 @@ class SidebarRoll extends SidebarTab {
             }
         }
 
-        for (let i of skills[6]){
+        for (let i of skills[6]) {
             let foundParent = false
             for (let k = 0; k < 6; k++){
                 for (let j = 0; j < skills[k].length; j++){
@@ -215,11 +228,6 @@ class SidebarRoll extends SidebarTab {
             if ($(ev.currentTarget).hasClass("active")) {
                 html.find('.advantage-button').removeClass("active")
             }
-        })
-
-        // Add/remove XP roll
-        html.find('.xp-control').click(ev => {
-            $(ev.currentTarget).toggleClass("active")
         })
 
         html.find('.sidebar-modifier').click(ev => {
@@ -288,19 +296,6 @@ class SidebarRoll extends SidebarTab {
             }
 
             this.render()
-        })
-
-        Hooks.on('controlToken', (object, controlled) => {
-            if (controlled) {
-                this.actor = game.actors.get(object.document.actorId)
-                this.render()
-            }
-        })
-
-        Hooks.on('actorUpdated', (data) => {
-            if (data.actor.uuid === this.actor.uuid) {
-                this.render()
-            }
         })
     }
 }

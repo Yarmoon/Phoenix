@@ -1,6 +1,8 @@
 import {PhoenixSidebar} from "./ui/PhoenixSidebar.js";
+import { PhoenixActorPanel } from "./ui/PhoenixActorPanel.js";
 
-Hooks.on('init', () => {
+Hooks.once('init', () => {
+
     CONFIG.ui.sidebar = PhoenixSidebar;
 
     CONFIG.sidebarRoll = {
@@ -10,6 +12,25 @@ Hooks.on('init', () => {
             batchSize: 100
     }
 })
+
+Hooks.once('ready', () => {
+    ui.hotbar.close()
+
+
+})
+
+let actorPanel
+
+Hooks.on("controlToken", (token, controlled) => {
+    if  (!controlled) return
+
+    if (actorPanel) actorPanel.close()
+
+    actorPanel = new PhoenixActorPanel(token.actor)
+
+    actorPanel.render(true)
+
+});
 
 export function manageListElement(html, name, value, type, toggle) {
     let mod_value = value

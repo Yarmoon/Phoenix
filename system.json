@@ -1,7 +1,7 @@
 {
   "title": "Phoenix",
   "description": "The unofficial phoenix system for FoundryVTT.",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "esmodules": [
     "module/phoenix.js",
     "module/roll-tab.js"

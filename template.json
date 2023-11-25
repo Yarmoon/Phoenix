@@ -2,6 +2,8 @@
   "Actor": {
     "types": [
       "character",
+      "npc",
+      "enemy",
       "storage"
     ],
     "templates": {
@@ -25,10 +27,64 @@
         "evasion": {
           "value": 0,
           "max": 0
-        }
+        },
+        "bleed": 0,
+        "victories": 0,
+        "might": 0
       }
     },
     "character": {
+      "templates": [
+        "base"
+      ],
+      "biography": "",
+      "notes": "",
+      "description": {
+        "background": "Description",
+        "birthsign": "",
+        "coat": "",
+        "look": ""
+      },
+      "level": {
+        "value": 1,
+        "xp": 0
+      },
+      "stats": {
+        "strength": {
+          "value": 0,
+          "label": "Strength",
+          "max": 0
+        },
+        "dexterity": {
+          "value": 0,
+          "label": "Dexterity",
+          "max": 0
+        },
+        "constitution": {
+          "value": 0,
+          "label": "Constitution",
+          "max": 0
+        },
+        "intelligence": {
+          "value": 0,
+          "label": "Intelligence",
+          "max": 0
+        },
+        "wisdom": {
+          "value": 0,
+          "label": "Wisdom",
+          "max": 0
+        },
+        "charisma": {
+          "value": 0,
+          "label": "Charisma",
+          "max": 0
+        }
+      },
+      "other": {
+      }
+    },
+    "npc": {
       "templates": [
         "base"
       ],
