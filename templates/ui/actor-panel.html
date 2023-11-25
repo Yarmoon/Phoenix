@@ -6,7 +6,51 @@
            value="{{actor.name}}"
            placeholder="Name"
            style="grid-area: name; color: white; font-size: 2rem; height: 100%; width: 100%"/>
+    <div class="max-health-evasion-popover">
+        <label class="stat"> Макс. уклонение:
+            <input name="system.evasion.max" class="stat-input" type="number" value="{{actor.system.evasion.max}}">
+        </label>
+        <label class="stat"> Макс. здоровье:
+            <input name="system.health.max" class="stat-input" type="number" value="{{actor.system.health.max}}">
+        </label>
+    </div>
     <div class="stats">
+        <div class="stat" data-key="evasion">
+            <div class="stat-label"> УКЛ
+            </div>
+            <input name="system.evasion.value" class="stat-input" type="number" value="{{actor.system.evasion.value}}">
+        </div>
+        <div class="stat" data-key="armor">
+            <label class="stat-label"> БРОН
+                <input name="system.armor" class="stat-input" type="number" value="{{actor.system.armor}}">
+            </label>
+        </div>
+        <div class="stat" data-key="health">
+            <label class="stat-label"> ЗДРВ
+                <input name="system.health.value" class="stat-input" type="number" value="{{actor.system.health.value}}">
+            </label>
+        </div>
+        <div class="stat" data-key="bleed">
+            <label class="stat-label"> КРОВ
+                <input name="system.bleed" class="stat-input" type="number" value="{{actor.system.bleed}}">
+            </label>
+        </div>
 
+
+        <div class="stat" data-key="speed">
+            <label class="stat-label"> СКОР
+                <input name="system.speed.value" class="stat-input" type="number" value="{{actor.system.speed.value}}">
+            </label>
+        </div>
+        <div class="stat" data-key="victories">
+            <label class="stat-label"> ПБД
+                <input name="system.victories" class="stat-input" type="number" value="{{actor.system.victories}}">
+            </label>
+        </div>
+        <div class="stat" data-key="might">
+            <label class="stat-label"> МОЩЬ
+                <input name="system.might" class="stat-input" type="number" value="{{actor.system.might}}">
+            </label>
+        </div>
     </div>
 </form>

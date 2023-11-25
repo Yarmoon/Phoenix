@@ -1581,24 +1581,27 @@
 }
 
 #actor-panel {
-    width: 620px;
-    height: 220px;
+    font-family: Kanyon;
+    width: 350px;
+    height: 620px;
     opacity: 0.9;
     position: fixed;
     bottom: 0;
     background-color: #2b2b2b; /* Dark background */
     border: 1px solid #3e3e3e; /* Slight border */
     border-radius: 4px; /* Rounded corners */
-    padding: 10px; /* Inner spacing */
+    padding: 5px 10px 10px 10px; /* Inner spacing */
     color: #ffffff; /* Text color */
-    z-index: 200;
+    z-index: var(--z-index-ui);
 
     display: grid;
     grid-template-areas:
-            'portrait stats attrs roll'
-            'name name attrs roll';
-
-    grid-template-columns: 150px 150px 200px 100px;
+            'portrait stats'
+            'name name'
+            'attrs attrs'
+            'roll roll';
+    grid-template-columns: 150px 180px;
+    grid-template-rows: 150px 30px 200px 100px;
 
 }
 
@@ -1606,11 +1609,6 @@
     width: 150px;
     height: 150px;
     border: none;
-    margin-top: 5px;
-}
-
-#actor-panel .noborder {
-    font-family: Kanyon;
 }
 
 #actor-panel .noborder:focus {
@@ -1620,6 +1618,51 @@
 
 #actor-panel .stats {
     display: grid;
-    background: white;
+    grid-auto-flow: column;
+    grid-template-rows: 35px 35px 35px 35px;
+    grid-template-columns: 50% 50%;
     grid-area: stats;
+
+    align-content: center;
+}
+
+#actor-panel .stat {
+    display: flex;
+    height: 30px;
+    justify-content: end;
+    font-size: 1.5rem;
+}
+
+#actor-panel .stat-label {
+    font-weight: 400;
+    color: white;
+}
+
+#actor-panel .stat-input {
+    background: none;
+    color: white;
+    width: 40px;
+    border: 0;
+    text-align: center;
+}
+
+#actor-panel .stat-input:focus {
+    box-shadow: 0 0 2px #ff6400;
+}
+
+#actor-panel .max-health-evasion-popover {
+    display: none;
+    position: absolute;
+    bottom: 610px;
+    left: 170px;
+    width: 170px;
+    height: 60px;
+    font-size: 2rem;
+    background: #2b2b2b;
+    opacity: 0.9;
+    border: 1px solid #3e3e3e;
+}
+
+.stat:hover .max-health-evasion-popover {
+    display: block;
 }
