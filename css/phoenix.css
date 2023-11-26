@@ -1601,7 +1601,7 @@
             'attrs attrs'
             'roll roll';
     grid-template-columns: 150px 180px;
-    grid-template-rows: 150px 30px 200px 100px;
+    grid-template-rows: 150px 40px 150px 100px;
 
 }
 
@@ -1665,4 +1665,92 @@
 
 .stat:hover .max-health-evasion-popover {
     display: block;
+}
+
+#actor-panel .attrs {
+    grid-area: attrs;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 30% 30% 30%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#actor-panel .attr {
+    font-size: 2rem;
+    text-align: center;
+}
+
+#actor-panel .skills-popover {
+    display: none;
+    position: absolute;
+    bottom: 420px;
+    left: -1px;
+    width: 350px;
+    height: 400px;
+
+    overflow: scroll;
+    overflow-x: hidden;
+
+    font-size: 1.5rem;
+    background: #2b2b2b;
+    opacity: 0.99;
+    border: 1px solid #3e3e3e;
+}
+
+#actor-panel .skills-list {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+}
+
+#actor-panel .skill-box {
+    display: grid;
+    grid-template-areas: "primary secondary";
+    grid-template-columns: 50% 50%;
+    border: 1px solid #3e3e3e;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+#actor-panel .skill {
+    height: 35px;
+    padding: 5px;
+    border-radius: 4px;
+    vertical-align: middle;
+    display: flex;
+    justify-content: space-between;
+}
+
+#actor-panel .primary-skill {
+    grid-area: primary;
+}
+
+#actor-panel .secondary-skill {
+    grid-area: secondary;
+}
+
+#actor-panel .item-name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 0;
+}
+
+#actor-panel .skill-controls {
+    font-size: 1rem;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 35px;
+}
+
+#actor-panel .skill:hover {
+    background: #ff6400;
+    color: black;
+}
+
+#actor-panel .skill:hover .skill-controls {
+    display: flex;
 }

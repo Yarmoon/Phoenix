@@ -14,6 +14,49 @@
             <input name="system.health.max" class="stat-input" type="number" value="{{actor.system.health.max}}">
         </label>
     </div>
+
+    <div class="skills-popover">
+        <ul class="skills-list" style="width: 100%">
+            {{#each skills as |list id|}}
+                {{#if list}}
+                    <div style="font-size: 2rem; margin-bottom: 3px; text-align: center">{{localize
+                            (concat "Phoenix." (tostat id))}}</div>
+                    {{#each list as |item id|}}
+                        <li class="skill-box">
+                            <div class="skill primary-skill"
+                                 data-item-id="{{item.skill._id}}"
+                                 data-key="{{item.skill.name}}"
+                                 data-value="{{item.skill.system.value}}">
+                                <h4 class="item-name">{{item.skill.system.value}} {{item.skill.name}} </h4>
+                                <div class="skill-controls">
+                                    <a class="skill-control skill-edit" title="{{localize Phoenix.EditSkill}}"><i class="fas fa-edit"></i></a>
+                                    <a class="skill-control skill-delete" title="{{localize Phoenix.DeleteSkill}}"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </div>
+                            {{#if item.secondaries}}
+                                <div class="secondaries-box">
+                                    {{#each item.secondaries as |secondary id|}}
+                                        <div class="skill secondary-skill"
+                                             data-item-id="{{secondary._id}}"
+                                             data-key="{{secondary.name}}"
+                                             data-value="{{secondary.system.value}}"
+                                             data-mod-type="secondary">
+                                            <h4 class="item-name">{{secondary.system.value}} {{secondary.name}}</h4>
+                                            <div class="skill-controls">
+                                                <a class="skill-control skill-edit" title="{{localize Phoenix.EditSkill}}"><i class="fas fa-edit"></i></a>
+                                                <a class="skill-control skill-delete" title="{{localize Phoenix.DeleteSkill}}"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            {{/if}}
+                        </li>
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+
     <div class="stats">
         <div class="stat" data-key="evasion">
             <div class="stat-label"> УКЛ
@@ -27,11 +70,12 @@
         </div>
         <div class="stat" data-key="health">
             <label class="stat-label"> ЗДРВ
-                <input name="system.health.value" class="stat-input" type="number" value="{{actor.system.health.value}}">
+                <input name="system.health.value" class="stat-input" type="number"
+                       value="{{actor.system.health.value}}">
             </label>
         </div>
         <div class="stat" data-key="bleed">
-            <label class="stat-label"> КРОВ
+            <label class="stat-label"> КРВ
                 <input name="system.bleed" class="stat-input" type="number" value="{{actor.system.bleed}}">
             </label>
         </div>
@@ -51,6 +95,39 @@
             <label class="stat-label"> МОЩЬ
                 <input name="system.might" class="stat-input" type="number" value="{{actor.system.might}}">
             </label>
+        </div>
+    </div>
+
+    <div class="attrs">
+        <div class="attr">
+            <div class="attr-name">СИЛ</div>
+            <input name="system.stats.strength.value" class="stat-input" type="number"
+                   value="{{actor.system.stats.strength.value}}">
+        </div>
+        <div class="attr">
+            <div class="attr-name">ЛОВ</div>
+            <input name="system.stats.dexterity.value" class="stat-input" type="number"
+                   value="{{actor.system.stats.dexterity.value}}">
+        </div>
+        <div class="attr">
+            <div class="attr-name">ТЕЛ</div>
+            <input name="system.stats.constitution.value" class="stat-input" type="number"
+                   value="{{actor.system.stats.constitution.value}}">
+        </div>
+        <div class="attr">
+            <div class="attr-name">ИНТ</div>
+            <input name="system.stats.intelligence.value" class="stat-input" type="number"
+                   value="{{actor.system.stats.intelligence.value}}">
+        </div>
+        <div class="attr">
+            <div class="attr-name">ЧУВ</div>
+            <input name="system.stats.wisdom.value" class="stat-input" type="number"
+                   value="{{actor.system.stats.wisdom.value}}">
+        </div>
+        <div class="attr">
+            <div class="attr-name">ЛИЧ</div>
+            <input name="system.stats.charisma.value" class="stat-input" type="number"
+                   value="{{actor.system.stats.charisma.value}}">
         </div>
     </div>
 </form>

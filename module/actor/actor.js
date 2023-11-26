@@ -12,7 +12,6 @@ export class PhoenixActor extends Actor {
 
     const actorData = this;
 
-    console.log(actorData)
     const data = actorData.system;
     const flags = actorData.flags;
 
