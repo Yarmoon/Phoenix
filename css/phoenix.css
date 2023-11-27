@@ -1590,7 +1590,7 @@
     background-color: #2b2b2b; /* Dark background */
     border: 1px solid #3e3e3e; /* Slight border */
     border-radius: 4px; /* Rounded corners */
-    padding: 5px 10px 10px 10px; /* Inner spacing */
+    padding: 4px 10px 6px 10px; /* Inner spacing */
     color: #ffffff; /* Text color */
     z-index: var(--z-index-ui);
 
@@ -1600,10 +1600,10 @@
             'name name'
             'attrs attrs'
             'buttons buttons'
-            'modifiers modifiers'
+            'custom-mod custom-mod'
             'roll roll';
     grid-template-columns: 150px 180px;
-    grid-template-rows: 150px 40px 150px 40px 45px 100px;
+    grid-template-rows: 150px 40px 150px 45px 30px 195px
 
 }
 
@@ -1785,18 +1785,11 @@
     grid-template-columns: 47% 47%;
 }
 
-#actor-panel .skill-effect-control-button {
+#actor-panel .skill-effect-control{
     font-size: 1.5rem;
-    border-radius: 4px;
-    cursor: pointer;
     padding-top: 4px;
     height: 35px;
     text-align: center;
-    border: 2px solid #3e3e3e;
-}
-
-#actor-panel .skill-effect-control-button:hover {
-    box-shadow: 0 0 5px white;
 }
 
 #actor-panel .effects-panel {
@@ -1869,7 +1862,7 @@
     width: 140px;
     text-align: center;
     left: 105px;
-    bottom: 233px;
+    bottom: 195px;
     position: absolute;
     background: #2b2b2b;
     opacity: 0.99;
@@ -1882,8 +1875,136 @@
 
 #actor-panel .roll-modifiers-sum{
     grid-area: modifiers;
-    padding: 5px;
     font-size: 2rem;
     text-align: center;
     width: 100%;
+}
+
+#actor-panel .dice-wrapper {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    margin: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#actor-panel .dice-wrapper:hover {
+    padding: 0;
+    box-shadow: 0 0 2px #3e3e3e;
+}
+
+#actor-panel .dice-icon {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#actor-panel .dice-tray {
+    grid-area: dice-tray;
+
+    display: grid;
+    grid-template-areas:
+            'd4 d6 d8 d20'
+            'd10 d12 d100 d20';
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    grid-template-rows: 50% 50%;
+    width: 165px;
+    height: 66px;
+    align-items: center;
+}
+
+#actor-panel .roll-tab {
+    display: grid;
+    grid-area: roll;
+    grid-template-areas:
+            'modifiers modifiers'
+            'dice-tray roll'
+            'presets presets';
+    grid-template-rows: 40px 75px 80px;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+
+#actor-panel .custom-modifier {
+    grid-area: custom-mod;
+    padding-left: 3px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-size: 2rem;
+    text-align: center;
+    justify-content: center;
+}
+
+#actor-panel .custom-modifier-button {
+    font-size: 4rem;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    padding-left: 6px;
+}
+
+#actor-panel .roll-presets {
+    grid-area: presets;
+
+    display: grid;
+    grid-template-rows: 45% 45%;
+    grid-template-columns: 33% 33% 33%;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+#actor-panel .roll-preset {
+    font-size: 1.7rem;
+}
+
+#actor-panel .roll-info {
+    grid-area: roll;
+    font-size: 1.5rem;
+    display: grid;
+    padding: 5px;
+    height: 75px;
+}
+
+#actor-panel .roll-formula {
+
+}
+
+#actor-panel .adv-disadv {
+    display: flex;
+    justify-content: space-between;
+}
+
+#actor-panel .vantage {
+    cursor: pointer;
+    width: 49%;
+    text-align: center;
+}
+
+#actor-panel .roll-button {
+    font-size: 2rem;
+}
+
+#actor-panel .panel-button {
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    border: 2px solid #3e3e3e;
+}
+
+#actor-panel .panel-button:hover {
+    box-shadow: 0 0 5px #999999;
+}
+
+#actor-panel .dice-counter {
+    background: #c24b00;
+    text-align: center;
+    width: auto;
+    border-radius: 5px;
+    font-size: 2rem;
+    padding: 0 5px 0 5px;
 }

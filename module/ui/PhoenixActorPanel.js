@@ -5,12 +5,28 @@ export class PhoenixActorPanel extends ActorSheet {
 
         this.rollModifiers = {}
 
+        this.customMod = 0
+
         this.effectsCollapsed = true;
+
+        this.rollDice = {
+            d4: 0,
+            d6: 0,
+            d8: 0,
+            d10: 0,
+            d12: 0,
+            d20: 0,
+            d100: 0
+        }
+
+        this.vantage = ""
 
         this.renderPopovers = []
 
         Hooks.on("renderActorSheet", (app, html, data) => {
             if (app.appId === this.appId) {
+                if (Object.values(this.rollModifiers).length === 0 && this.customMod === 0) $(html).find('.roll-modifiers-list').remove()
+
                 for (const effect of this.object.appliedEffects) {
                     let effectItem = $(html).find(`[data-effect-id="${effect.id}"]`)
                     effectItem.find("img").addClass("img-border")
@@ -24,7 +40,10 @@ export class PhoenixActorPanel extends ActorSheet {
                         rollModField = $(html).find(`[data-key="${this.rollModifiers[rollMod].reference}"]`)
                     rollModField.addClass("mod-active")
                 }
+
+                this._updateDice()
             }
+
 
             for (const popover of this.renderPopovers) {
                 $(popover).show()
@@ -43,6 +62,7 @@ export class PhoenixActorPanel extends ActorSheet {
         let context = foundry.utils.mergeObject(super.getData(options), this.prepareSkills(this.object), this.rollModifiers)
         context = foundry.utils.mergeObject(context, {rollmods: this.rollModifiers})
         context = foundry.utils.mergeObject(context, {rollModsSum: this._calculateRollModifiersSum()})
+        context = foundry.utils.mergeObject(context, {customMod: this.customMod})
         return context;
     }
 
@@ -293,9 +313,65 @@ export class PhoenixActorPanel extends ActorSheet {
 
             this.actor.updateEmbeddedDocuments("ActiveEffect", [{_id: effect.id, disabled: !effect.disabled}])
         })
+
+        html.find('.custom-modifier-button').click(ev => {
+            const li = $(ev.currentTarget)
+            this.customMod += parseInt(li.data("key"), 10) * (1 + ev.shiftKey * 4)
+
+            this.render()
+        })
+
+        html.find('.dice-wrapper').click(ev => {
+            const li = $(ev.currentTarget)
+            const die = li.data("key")
+            this.rollDice[die]+=1
+
+            this.render()
+        })
+
+        html.find('.dice-wrapper').on('contextmenu', ev => {
+            const li = $(ev.currentTarget)
+            const die = li.data("key")
+            if (this.rollDice[die] > 0)
+            this.rollDice[die]-=1
+
+            this.render()
+        })
+    }
+
+    _updateDice() {
+        $.each(this.rollDice, function(key, value) {
+            // Find elements with the matching data-key and update them
+            $('[data-key="' + key + '"]').each(function() {
+                if (value >= 1) $(this).addClass("mod-active")
+                if (value <=1) return
+
+                let displayElement = $('<div class="dice-counter">' + value + '</div>');
+
+                // Append the display element to the body or a container, not as a child of the current element
+                $(this).parents("#actor-panel").append(displayElement);
+
+                // Position the display element over the current element
+                let offset = $(this).position();
+
+                displayElement.css({
+                    position: 'absolute',
+                    left: offset.left + $(this).width()/2 + 'px',
+                    top: offset.top + $(this).height() + 'px',
+                    transform: "translate(-30%, 0) scale(" + ($(this).width()/120 + 0.5) + ")"
+                });
+            });
+        });
     }
 
     _recalculateRollModifiers() {
+        if (this.customMod !== 0) this.rollModifiers.customMod = {
+            name: "Ситуативный",
+            value: this.customMod,
+            type: "custom"
+        }
+        else delete this.rollModifiers.customMod
+
         for (const rollMod of Object.values(this.rollModifiers)) {
             if (rollMod.type === "stat") {
                 rollMod.value = this._getValueFromPath(this.object.system, rollMod.reference)
