@@ -29,6 +29,7 @@ Hooks.once('init', async function () {
 
     Actors.registerSheet("phoenix", PhoenixActorSheet, {
         types: ['character', 'npc'],
+        label: game.i18n.localize("phoenix.PhoenixActorSheet"),
         makeDefault: true
     });
     Actors.registerSheet("phoenix", PhoenixStorageSheet, {

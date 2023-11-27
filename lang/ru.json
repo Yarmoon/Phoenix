@@ -72,7 +72,11 @@
 
   "Phoenix.SkillName": "Навык",
   "Phoenix.AddSkill" : "Добавить навык",
+  "Phoenix.EditSkill": "Изменить навык",
+  "Phoenix.DeleteSkill": "Удалить навык",
   "Phoenix.SkillCreation": "Создание навыка",
+
+  "Phoenix.AddEffect": "Добавить эффект",
 
   "Phoenix.Cancel" : "Отмена",
   "Phoenix.Create": "Создать",
@@ -99,5 +103,7 @@
   "Phoenix.RollTarget" : "Target",
   "Phoenix.RollAD" : "A/D",
   "Phoenix.RollMiscast" : "Miscast",
-  "Phoenix.RollMiscastDesc" : "Take [[/r !miscast!d6]] Will Damage <br/> Then, make a will save, taking the <i>drained</i> condition on a failure."
+  "Phoenix.RollMiscastDesc" : "Take [[/r !miscast!d6]] Will Damage <br/> Then, make a will save, taking the <i>drained</i> condition on a failure.",
+
+  "phoenix.PhoenixActorSheet": "Лист Персонажа Phoenix"
 }

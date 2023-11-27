@@ -1599,9 +1599,11 @@
             'portrait stats'
             'name name'
             'attrs attrs'
+            'buttons buttons'
+            'modifiers modifiers'
             'roll roll';
     grid-template-columns: 150px 180px;
-    grid-template-rows: 150px 40px 150px 100px;
+    grid-template-rows: 150px 40px 150px 40px 45px 100px;
 
 }
 
@@ -1636,6 +1638,7 @@
 #actor-panel .stat-label {
     font-weight: 400;
     color: white;
+    padding: 1px;
 }
 
 #actor-panel .stat-input {
@@ -1735,6 +1738,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 100%;
     margin-bottom: 0;
 }
 
@@ -1746,11 +1750,140 @@
     width: 35px;
 }
 
-#actor-panel .skill:hover {
-    background: #ff6400;
-    color: black;
+#actor-panel .roll-mod {
+    margin: 2px;
+    cursor: pointer;
 }
 
-#actor-panel .skill:hover .skill-controls {
+#actor-panel .roll-mod:hover {
+    margin: 0;
+    border: 2px solid #c24b00;
+}
+
+#actor-panel .mod-active {
+    margin: 0;
+    border: 2px solid #c24b00;
+}
+
+#actor-panel .skill.roll-mod:hover {
+    height: 39px;
+}
+
+#actor-panel .skill.mod-active {
+    height: 39px;
+}
+
+#actor-panel .roll-mod:hover .skill-controls {
     display: flex;
+}
+
+#actor-panel .skill-effect-controls {
+    grid-area: buttons;
+    padding: 5px;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 47% 47%;
+}
+
+#actor-panel .skill-effect-control-button {
+    font-size: 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    padding-top: 4px;
+    height: 35px;
+    text-align: center;
+    border: 2px solid #3e3e3e;
+}
+
+#actor-panel .skill-effect-control-button:hover {
+    box-shadow: 0 0 5px white;
+}
+
+#actor-panel .effects-panel {
+    position: absolute;
+    overflow: hidden;
+    left: 350px;
+    width: 35px;
+    height: 400px;
+
+    background: #2b2b2b;
+    opacity: 0.99;
+    padding: 0;
+
+    font-size: 1.5rem;
+}
+
+#actor-panel .effect {
+    height: 35px;
+    padding: 5px;
+    border-radius: 4px;
+    vertical-align: middle;
+    display: flex;
+    justify-content: space-between;
+}
+
+#actor-panel .effect-item {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#actor-panel .effect-controls {
+    font-size: 1rem;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 40px;
+}
+
+#actor-panel .expand-effects-forward .effect:hover .effect-controls {
+    display: flex;
+}
+
+#actor-panel .effect:hover .effect-controls {
+    display: none;
+}
+
+#actor-panel .expand-effects-button {
+    padding-top: 8px;
+    padding-left: 14px;
+    font-size: 1rem;
+}
+
+#actor-panel .expand-effects-forward {
+    width: 200px;
+    padding: 0 5px 5px 0;
+    overflow-y: scroll;
+}
+
+#actor-panel .img-border {
+    border: 2px solid #c24b00;
+}
+
+#actor-panel .roll-modifiers-list {
+    display: none;
+    border: 1px solid #3e3e3e;
+    width: 140px;
+    text-align: center;
+    left: 105px;
+    bottom: 233px;
+    position: absolute;
+    background: #2b2b2b;
+    opacity: 0.99;
+    font-size: 1.5rem;
+}
+
+#actor-panel .roll-mod-item {
+    overflow: hidden;
+}
+
+#actor-panel .roll-modifiers-sum{
+    grid-area: modifiers;
+    padding: 5px;
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
 }

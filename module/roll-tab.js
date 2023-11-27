@@ -2,15 +2,6 @@ import {PhoenixSidebar} from "./ui/PhoenixSidebar.js";
 import { PhoenixActorPanel } from "./ui/PhoenixActorPanel.js";
 
 Hooks.once('init', () => {
-
-    CONFIG.ui.sidebar = PhoenixSidebar;
-
-    CONFIG.sidebarRoll = {
-            documentClass: ChatLog,
-            template: "systems/phoenix/templates/ui/sidebar-roll.html",
-            sidebarIcon: "fas fa-dice-d20",
-            batchSize: 100
-    }
 })
 
 Hooks.once('ready', () => {
